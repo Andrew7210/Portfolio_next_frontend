@@ -1,8 +1,8 @@
 import React from 'react'
-import HolwsCastle from '../components/Characters/HolwsCastle'
+import HolwsCastle from '../components/Characters/HolwsCastle/HolwsCastle'
 function test() {
   return (
-    <HolwsCastle />
+    <div className='h-full'><HolwsCastle /></div>
   )
 }
 
