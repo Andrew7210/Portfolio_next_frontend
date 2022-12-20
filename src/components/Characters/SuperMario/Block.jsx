@@ -1,6 +1,5 @@
 import React, {useRef, useState} from 'react'
 import AudioStomp from './assets/smw_stomp.ogg'
-import AudioPowerUp from './assets/smw_power-up.ogg'
 import AudioAppears from './assets/smw_power-up_appears.ogg'
 import AudioNoDamage from './assets/smw_stomp_no_damage.ogg'
 import { random } from '@/lib/utils'
@@ -12,7 +11,6 @@ const Block = ({hasCoins, setHasFoundAllCoins,FindCoins, setFindCoins, setJumped
   const coinsToBeFound = 16
   const [hasTouched, setHasTouched] = useState(false)
   const audioStomp = new Howl({src:[AudioStomp]})
-  const audioPowerUp = new Howl({src:[AudioPowerUp]})
   const audioAppears = new Howl({src:[AudioAppears]})
   const audioNoDamage = new Howl({src:[AudioNoDamage]})
   
@@ -60,9 +58,6 @@ const Block = ({hasCoins, setHasFoundAllCoins,FindCoins, setFindCoins, setJumped
     })
     setFindCoins((preState) => preState + 1)
     console.log(FindCoins, coinsToBeFound)
-    if (hasFoundAllCoins()) {
-      audioPowerUp.play()
-    }
     audioAppears.play()
   }
 
