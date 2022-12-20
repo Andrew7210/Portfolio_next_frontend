@@ -1,0 +1,276 @@
+.mario {
+  width: 128px;
+  height: 248px;
+  background: url('./MarioAsset/bg-mario.png') no-repeat -256px -384px;
+
+  &.up {
+    background-position: 0 -384px;
+  }
+  &.down {
+    background-position: -128px -384px;
+  }
+  &.celebrate {
+    background-position: -384px -384px;
+  }
+
+  .preview > & {
+    margin: 10rem auto 3rem;
+  }
+}
+
+button {
+  padding: 1rem;
+}
+
+.mario-coin {
+  width: 128px;
+  height: 128px;
+  background: url('./MarioAsset/bg-mario.png') no-repeat 0 -256px;
+  animation: marioCoin 0.6s steps(4) infinite;
+  pointer-events: none;
+
+  &.pause {
+    animation-play-state: paused;
+  }
+
+  .preview > & {
+    margin: 10rem auto 3rem;
+  }
+
+  @keyframes marioCoin {
+    to {
+      background-position: -512px -256px;
+    }
+  }
+}
+
+.mario-box {
+  position: relative;
+  cursor: pointer;
+  width: 128px;
+  height: 128px;
+
+  .preview>& {
+    margin: 30rem auto 10rem;
+  }
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+
+  &.-jumped {
+    .in {
+      animation: marioBoxEmpty 0.6s steps(4) infinite;
+    }
+  }
+
+  &.-full.-jumped .in {
+    animation: none;
+    background-position: -512px 0;
+  }
+
+  &.-off {
+    cursor: default;
+
+    &:hover {
+      filter: none;
+    }
+  }
+
+  .in {
+    position: relative;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 128px;
+    height: 128px;
+    background: url('./MarioAsset/bg-mario.png') no-repeat 0 0;
+    animation: marioBox 0.6s steps(4) infinite;
+  }
+
+  .mario-coin {
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    position: absolute;
+  }
+}
+
+@keyframes marioBox {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -512px 0;
+  }
+}
+
+@keyframes marioBoxEmpty {
+  from {
+    background-position: 0 -128px;
+  }
+
+  to {
+    background-position: -512px -128px;
+  }
+}
+
+body.is-playing-mario {
+  overflow: hidden;
+
+  #header,
+  .wrapper:after,
+  .spine,
+  .spine-target {
+    transition: opacity 200ms ease-out;
+    opacity: 0 !important;
+  }
+
+  &:before {
+    content: '?';
+    font-family: 'SMW', monospace;
+    font-size: 3rem;
+    color: #fff;
+    position: fixed;
+    top: 8rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+  }
+}
+
+#Mario {
+
+  .blocks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: max(2rem, 6vw);
+    margin-top: 35vh;
+  }
+
+  .mario-box {
+    left: calc(50% - 64px);
+  }
+
+  .mario {
+    position: fixed !important;
+    top: calc(100% - 248px);
+    left: calc(50% - 64px);
+  }
+
+  .mario-coin-counter {
+    position: fixed;
+    top: 7rem;
+    left: calc(50% - 3rem);
+    width: 7rem;
+    text-align: center;
+    line-height: 3rem;
+    font-family: 'SMW', monospace;
+    font-size: 2rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+
+    &:before {
+      flex: 0 0 auto;
+      content: '';
+      margin-right: 0.5rem;
+      width: 2rem;
+      height: 2rem;
+      background: url('./MarioAsset/bg-mario.png') no-repeat
+        0 -64px;
+      background-size: 160px 158px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .mario-box,
+    .mario {
+      transform-origin: 50% 100%;
+      transform: scale(0.7);
+    }
+
+    .container {
+      transform: scale(1);
+    }
+
+    .mario-coin-counter {
+      top: 6rem;
+      font-size: 1.5rem;
+
+      &:before {
+        transform: scale(0.8);
+      }
+    }
+  }
+}
+
+.mario-msg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.mario-msg {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  transform: translate3d(-50%, -50%, 0);
+  transform-origin: 50% 50%;
+  width: 40rem;
+  height: 30rem;
+  padding: 2rem;
+  max-width: 70vw;
+  max-height: 70vh;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  font-family: 'SMW', monospace;
+  font-size: 2rem;
+  text-align: center;
+  letter-spacing: 2px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+
+  .-purple {
+    color: var(--purple);
+  }
+
+  .later {
+    color: var(--purple);
+    padding-top: 2rem;
+    position: static;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 568px) {
+    padding: 1rem;
+    max-width: 80vw;
+    font-size: 1.2rem;
+
+    .later {
+      padding-top: 1rem;
+    }
+  }
+}
+
+.mario-msg-close {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 99;
+  width: 3rem;
+  height: 3rem;
+  color: #000;
+  font-size: 2rem;
+  background: none;
+  padding: 0;
+}

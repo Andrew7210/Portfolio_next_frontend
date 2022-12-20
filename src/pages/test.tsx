@@ -1,8 +1,8 @@
 import React from 'react'
-import HolwsCastle from '../components/Characters/HolwsCastle/HolwsCastle'
+import SuperMario from '../components/Home/SuperMarioScene'
 function test() {
   return (
-    <div className='h-full'><HolwsCastle /></div>
+    <div className='h-full'><SuperMario /></div>
   )
 }
 
