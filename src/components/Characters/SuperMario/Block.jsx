@@ -57,7 +57,6 @@ const Block = ({hasCoins, setHasFoundAllCoins,FindCoins, setFindCoins, setJumped
 
     })
     setFindCoins((preState) => preState + 1)
-    console.log(FindCoins, coinsToBeFound)
     audioAppears.play()
   }
 

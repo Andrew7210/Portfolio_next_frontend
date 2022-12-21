@@ -3,7 +3,6 @@ import { random } from '@/lib/utils'
 import {Howl, Howler} from 'howler'
 import AudioFinish from '../Characters/SuperMario/assets/smw_power-up.ogg'
 import SuperMarioBlock from '../Characters/SuperMario/Block'
-import SuperMarioMario from '../Characters/SuperMario/Mario'
 import SceneSection from '../SceneSection'
 import {motion, useAnimationControls} from 'framer-motion'
 
@@ -76,7 +75,6 @@ const SuperMarioScene = () => {
       }
     })
     setMarioState(hasFoundAllCoins ? 'celebrate' : '')
-    console.log(hasFoundAllCoins)
   }
   useEffect(() => {
     if (foundCoins != 0) {
@@ -107,7 +105,6 @@ const SuperMarioScene = () => {
     })
   }
   const onCloseMessage = () => {
-    console.log('close')
     closeControl.start ({
       scale: 0,
       zIndex:100,
@@ -139,7 +136,7 @@ const SuperMarioScene = () => {
           <div class="mario-msg-overlay"></div>
           <div class="mario-msg">
             Wow! Thanks for jumping so many times. <br />
-            <span class="-purple">You found all the coins!</span>
+            <span class="-purple">You found all 16 coins!</span>
             <br />&nbsp;<br />
             Keep scrolling, you're near the end!
             <div class="later">
