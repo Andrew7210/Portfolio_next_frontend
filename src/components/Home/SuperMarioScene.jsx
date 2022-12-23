@@ -3,7 +3,6 @@ import { random } from '@/lib/utils'
 import {Howl, Howler} from 'howler'
 import AudioFinish from '../Characters/SuperMario/assets/smw_power-up.ogg'
 import SuperMarioBlock from '../Characters/SuperMario/Block'
-import SceneSection from '../SceneSection'
 import {motion, useAnimationControls} from 'framer-motion'
 
 const SuperMarioScene = () => {
