@@ -66,8 +66,8 @@ const Navbar = () => {
   }, [router.pathname]);
   return (
     /* for the nagivation bar */
-    <nav className="fixed z-10 flexCenter md:justify-end w-full h-16 bg-black ">
-      <div className='md:hidden w-2/3 flex flex-row flexBetween'>
+    <nav className="fixed z-50 w-full h-16 bg-black flexCenter md:justify-end ">
+      <div className='flex flex-row w-2/3 md:hidden flexBetween'>
         <div className="flex flex-row justify-start flex-1">
           <div className="cursor-pointer flexCenter ">
             <p className="ml-1 text-4xl font-bold text-purple-700">{active}</p>
@@ -83,7 +83,7 @@ const Navbar = () => {
 
       </div>
       {/* right side manu for the mobile device */}
-      <div className="hidden ml-3 pr-3 h-20 cursor-pointer items-center md:flex">
+      <div className="items-center hidden h-20 pr-3 ml-3 cursor-pointer md:flex">
         <RiveComponent style={{width: 50}} onClick={()=>{
           setIsOpen((preState) => !preState)
           bumpInput.value=!bumpInput.value
@@ -94,7 +94,7 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }} 
-            className="fixed inset-0 z-10 flex flex-col justify-between top-65 bg-black nav-h">
+            className="fixed inset-0 z-10 flex flex-col justify-between bg-black top-65 nav-h">
               <div className={`flex-1 p-4 ${active}`}>
                 {/* isMobile默认为true */}
                 <MenuItems active={active} setActive={setActive} isMobile setIsOpen={setIsOpen} inputs={bumpInput} />

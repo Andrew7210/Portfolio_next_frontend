@@ -24,10 +24,10 @@ const Contact = () => {
   });
   return (
     
-    <div className='flex flex-row'>
-      <div className='h-[90vh] w-6/12 m-5 z-10'>
-        <Spline className='rounded-2xl  overflow-auto translate-y-16' scene="https://prod.spline.design/P22vGZm61zvNmypS/scene.splinecode" />
-        <div className="absolute top-[70vh] left-5">
+    <div className='flex flex-row w-full'>
+      <div className='h-[92vh] w-6/12 m-5 z-10'>
+        <Spline className='rounded-3xl  overflow-auto' scene="https://prod.spline.design/P22vGZm61zvNmypS/scene.splinecode" />
+        <div className="absolute bottom-5 left-5">
           <div className='p-3 fill-white text-white font-bold text-3xl'>Keyboard Key &</div>
           <div className='p-3 fill-white text-white font-bold text-3xl'>Interact with items in the scene</div>
           <img src='Key.svg'></img>
