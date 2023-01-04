@@ -13,9 +13,9 @@ const crimsonPro = Crimson_Pro({subsets: ['latin']})
 const App = ({ Component, pageProps }: AppProps) => (
   <AnimatePresence>
     <div className={crimsonPro.className}>
-      <motion.div className="overflow-auto">
+      <motion.div>
         <Navbar />
-        <motion.div className="flex min-h-screen pt-16">
+        <motion.div className="flex pt-16">
           <Component {...pageProps} />
         </motion.div>
       </motion.div>

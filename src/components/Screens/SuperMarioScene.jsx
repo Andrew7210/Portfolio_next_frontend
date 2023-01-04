@@ -114,7 +114,7 @@ const SuperMarioScene = () => {
     
   }
   return (
-    <div class='container' id="Mario" role="img" aria-labelledby="marioDesc">
+    <div class='mariocontainer' id="Mario" role="img" aria-labelledby="marioDesc">
       <container>
         <div class="blocks">
           {[...Array(3)].map((_ , i) => (<SuperMarioBlock key={i} thisId = {`block${i}`}
