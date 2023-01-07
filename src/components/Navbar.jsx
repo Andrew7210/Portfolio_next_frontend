@@ -66,7 +66,7 @@ const Navbar = () => {
   }, [router.pathname]);
   return (
     /* for the nagivation bar */
-    <nav className="fixed z-50 w-full h-16 bg-black flexCenter md:justify-end ">
+    <nav className="fixed z-50 w-full h-16 bg-black bg-opacity-70 flexCenter md:justify-end ">
       <div className='flex flex-row w-2/3 md:hidden flexBetween'>
         <div className="flex flex-row justify-start flex-1">
           <div className="cursor-pointer flexCenter ">
