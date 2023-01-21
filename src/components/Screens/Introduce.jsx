@@ -20,7 +20,9 @@ const Introduce = ({setloaded}) => {
         </div>
         <h2 className='max-w-5xl text-5xl font-bold text-white '>&lt;/head&gt;</h2>
       </div>
-      <div className='absolute right-0'><Spline onLoad={()=>setloaded(true)} scene="https://prod.spline.design/ua1nr3Tk9lk0Yfqh/scene.splinecode" /></div>
+      <div className='absolute right-0'><Spline onLoad={()=>setTimeout(() => {
+        setloaded(true)
+      }, 3000)} scene="https://prod.spline.design/ua1nr3Tk9lk0Yfqh/scene.splinecode" /></div>
     </div>
   )
 }
