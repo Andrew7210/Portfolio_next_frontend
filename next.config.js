@@ -18,9 +18,14 @@ module.exports = {
             outputPath: `${isServer ? '../' : ''}static/images/`,
             name: '[name]-[hash].[ext]',
             esModule: config.esModule || false,
+            
           },
         },
       ],
+    });
+    config.module.rules.push({
+      test: /\.wasm$/,
+      use: ['url-loader'],
     });
 
     return config;

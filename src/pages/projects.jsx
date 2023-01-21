@@ -3,7 +3,6 @@ import Spline from '@splinetool/react-spline'
 import Lottie from "lottie-react";
 import linkedin from "public/lotti/linkedin.json";
 import github from "public/lotti/gitcat.json";
-import developer from "public/lotti/developer.json";
 import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
 import {motion, AnimatePresence} from 'framer-motion'
 import Mywork from '../components/Mywork';
