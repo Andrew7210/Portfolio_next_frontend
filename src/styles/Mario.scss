@@ -218,7 +218,9 @@ body.is-playing-mario {
 
 .mario-msg {
   position: fixed;
-  top: 50%;
+  width: 50%;
+  height: 50%;
+  top: 45%;
   left: 50%;
   z-index: 9999;
   transform: translate3d(-50%, -50%, 0);
