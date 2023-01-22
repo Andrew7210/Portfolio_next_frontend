@@ -9,9 +9,6 @@ body {
   padding: 0;
   background: #0e1212;
   transition: background-color 0.4s ease-out;
-  &.blue-background {
-    background: #0497d1;
-  }
 }
 
 html {
@@ -742,12 +739,10 @@ p {
 
 
 .mariocontainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
   perspective: 900px;
   perspective-origin: 50% 50vh;
+}
+
+.dropshadow {
+  box-shadow: 0px -20px 30px 20px #0497d1;
 }

@@ -3,9 +3,9 @@ import { random } from '@/lib/utils'
 import {Howl, Howler} from 'howler'
 import AudioFinish from '../Characters/SuperMario/assets/smw_power-up.ogg'
 import SuperMarioBlock from '../Characters/SuperMario/Block'
-import {motion, useAnimationControls} from 'framer-motion'
+import {motion, useAnimationControls, useScroll, useTransform} from 'framer-motion'
 
-const SuperMarioScene = () => {
+const SuperMarioScene = ({setshow}) => {
   const closeControl = useAnimationControls()
   const marioControl = useAnimationControls()
   const [foundCoins, setFoundCoins] = useState(0)
@@ -77,9 +77,9 @@ const SuperMarioScene = () => {
   }
   useEffect(() => {
     if (foundCoins != 0) {
-      document.body.classList.remove('is-playing-mario')
-      document.body.classList.add('has-played-mario')
-      document.body.classList.add('blue-background')
+      document.getElementById("marioscreen").classList.add("bg-[#0497d1]")
+      document.getElementById("marioscreen").classList.add("dropshadow")
+      setshow(true)
     }
   }, [foundCoins])
   
@@ -104,51 +104,58 @@ const SuperMarioScene = () => {
     })
   }
   const onCloseMessage = () => {
+
     closeControl.start ({
-      scale: 0,
+      opacity: 0,
       zIndex:100,
       transition: {
         duration:1
       }
     })
-    
   }
+
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0,1,0]);
+  
   return (
-    <div class='mariocontainer' id="Mario" role="img" aria-labelledby="marioDesc">
-      <container>
-        <div class="blocks">
-          {[...Array(3)].map((_ , i) => (<SuperMarioBlock key={i} thisId = {`block${i}`}
-          setJumped={setJumped} 
-          setHasFoundAllCoins={setHasFoundAllCoins} 
-          FindCoins = {foundCoins}
-          setFindCoins={setFoundCoins} 
-          hasCoins={randomBlock === i + 1}  />))}
-        </div>
-
-        {/* mario avatar */}
-        <div class="mario-container" ><motion.div ref={marioref}  animate={marioControl} class={`mario ${marioState}`}/></div>
-        <div class={`mario-coin-counter ${foundCoins ? '':'hidden'}`}>
-          {`${foundCoins}`}
-        </div>
-
-        <motion.div animate={closeControl} class={` ${hasFoundAllCoins ? '':'hidden'}`}>
-          <div class="mario-msg-overlay"></div>
-          <div class="mario-msg">
-            Wow! Thanks for jumping so many times. <br />
-            <span class="-purple">You found all 16 coins!</span>
-            <br />&nbsp;<br />
-            Keep scrolling, you're near the end!
-            <div class="later">
-              (￣Д￣)ﾉ
-              <button class="mario-msg-close" type="button" title="Close message"
-                onClick={onCloseMessage}
-              >
-                ✕
-              </button>
-            </div>
+    <div ref={ref} id="marioscreen" className='w-screen h-screen snap-center'>
+      <motion.div style={{opacity}} class='mariocontainer fixed top-0 left-0 z-10 w-screen h-screen' id="Mario" role="img" aria-labelledby="marioDesc">
+        <container>
+          <div class="blocks">
+            {[...Array(3)].map((_ , i) => (<SuperMarioBlock key={i} thisId = {`block${i}`}
+            setJumped={setJumped} 
+            setHasFoundAllCoins={setHasFoundAllCoins} 
+            FindCoins = {foundCoins}
+            setFindCoins={setFoundCoins} 
+            hasCoins={randomBlock === i + 1}  />))}
           </div>
-        </motion.div>
-      </container>
+  
+          {/* mario avatar */}
+          <div class="mario-container" ><motion.div ref={marioref}  animate={marioControl} class={`mario ${marioState}`}/></div>
+          <div class={`mario-coin-counter ${foundCoins ? '':'hidden'}`}>
+            {`${foundCoins}`}
+          </div>
+  
+          <motion.div animate={closeControl} class={` ${hasFoundAllCoins ? '':'hidden'}`}>
+            <div class="mario-msg-overlay"></div>
+            <div class="mario-msg">
+              Wow! Thanks for jumping so many times. <br />
+              <span class="-purple">You found all 16 coins!</span>
+              <br />&nbsp;<br />
+              Keep scrolling, you're near the end!
+              <div class="later">
+                (￣Д￣)ﾉ
+                <button class="mario-msg-close" type="button" title="Close message"
+                  onClick={onCloseMessage}
+                >
+                  ✕
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        </container>
+      </motion.div>
     </div>
   )
 }
