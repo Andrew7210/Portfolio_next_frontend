@@ -17,7 +17,6 @@ function useVertical(value, height, negative=false) {
 }
 
 const IntroToGame = () => {
-  const [show, setshow] = useState(false)
   const { rive, RiveComponent} = useRive({
     src: "rive/tour.riv",
     stateMachines: "state_machine",
@@ -31,12 +30,13 @@ const IntroToGame = () => {
   const activeInput = useStateMachineInput(rive, "state_machine", "isLightsOn", false);
 
   const ref = useRef(null);
-  const isInView = useInView(ref, {margin: "-10px 0px -10px 0px"})
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end end"] });
   const y = useVertical(scrollYProgress,200);
   const rotateX = useDegree(scrollYProgress);
   const y2 = useVertical(scrollYProgress,200,true);
   const rotateX2 = useDegree(scrollYProgress,true);
+  const [show, setshow] = useState(false)
+  const isInView = useInView(ref, {margin: "-10px 0px -10px 0px"})
   useEffect(() => {
     if (isInView) {
       setshow(true);

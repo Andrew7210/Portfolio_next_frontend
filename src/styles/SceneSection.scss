@@ -269,7 +269,7 @@ $delay : $duration/6;
 
 
 
-.body {
+.speedbody {
   position: absolute;
   top: 50%;
   margin-left: -50px;
@@ -345,10 +345,10 @@ $delay : $duration/6;
   }
 }
 
-.body > span > span:nth-child(1),
-.body > span > span:nth-child(2),
-.body > span > span:nth-child(3),
-.body > span > span:nth-child(4) {
+.speedbody > span > span:nth-child(1),
+.speedbody > span > span:nth-child(2),
+.speedbody > span > span:nth-child(3),
+.speedbody > span > span:nth-child(4) {
   width: 30px;
   height: 1px;
   background: #6d1ec7;
@@ -356,18 +356,18 @@ $delay : $duration/6;
   animation: fazer1 .2s linear infinite;
 }
 
-.body > span > span:nth-child(2) {
+.speedbody > span > span:nth-child(2) {
   top: 3px;
   animation: fazer2 .4s linear infinite;
 }
 
-.body > span > span:nth-child(3) {
+.speedbody > span > span:nth-child(3) {
   top: 1px;
   animation: fazer3 .4s linear infinite;
   animation-delay: -1s;
 }
 
-.body > span > span:nth-child(4) {
+.speedbody > span > span:nth-child(4) {
   top: 4px;
   animation: fazer4 1s linear infinite;
   animation-delay: -1s;

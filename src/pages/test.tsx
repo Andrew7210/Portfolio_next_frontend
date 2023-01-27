@@ -1,5 +1,5 @@
 import React from 'react'
-import SuperMario from '../components/Screens/SuperMarioScene'
+import SuperMario from '../components/Characters/HolwsCastle'
 function test() {
   return (
     <div className='h-full'><SuperMario /></div>

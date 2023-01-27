@@ -33,7 +33,7 @@ const Contact = () => {
         {showScreen && (
           <motion.div className="w-screen h-screen fixed top-0 z-30 bg-[#140e20]" exit={{opacity:0, transition: {delay:0.6}}}>
             
-            <motion.div class='body' exit={{left:"150vw",transition:{duration:0.5}}}>
+            <motion.div class='speedbody' exit={{left:"150vw",transition:{duration:0.5}}}>
               <span>
                 <span></span>
                 <span></span>
@@ -70,13 +70,13 @@ const Contact = () => {
           <div className='absolute top-0 w-1/2 adjustheight left-1/2 blur-2xl ' >
             <RiveComponent />
           </div>
-            <div className="z-20 littlebox w-36 h-36 opacity-80 right-[5%] top-[15%]"></div>
-            <div className="z-20 w-40 h-40 littlebox right-[40%] bottom-[30%]"></div>
+            <div className="z-20 littlebox w-36 h-36 opacity-80 right-[3%] top-[15%]"></div>
+            <div className="z-20 w-40 h-40 littlebox right-[42%] bottom-[30%]"></div>
             <div className="w-20 h-20 littlebox opacity-60 right-[17%] bottom-[7%]"></div>
             <div className="z-0 w-36 h-36 littlebox right-[38%] top-[12%]"></div>
             <div className="littlebox w-28 h-28 right-[4%] top-[40%]"></div>
             <div className="z-0 littlebox w-28 h-28 right-[35%] bottom-[2%]"></div>
-          <div className='z-10 min-h-[50vh] w-2/3 flex flex-col justify-center items-center backdrop-blur  '>
+          <div className='z-10 min-h-[50vh] w-3/4 flex flex-col justify-center items-center backdrop-blur  '>
             <div className='z-10 w-full p-5 border-4 rounded-2xl backdrop-blur boxfield'>
               <h1 className="pt-5 text-5xl font-extrabold text-center text-white ">Take a coffee & chat with me</h1>
               <div className="flex flex-row py-5 app__footer-cards">
@@ -86,7 +86,7 @@ const Contact = () => {
                 </div>
                 <div className="border-2 border-gray-400 border-opacity-50 shadow-md app__footer-card backdrop-blur">
                   <Lottie animationData={phone} loop={true} className='w-24 h-20'/>
-                  <a href="tel:+1 (226) 220-0555" className="text-2xl font-bold text-white">+1 (226) 220-0555</a>
+                  <a href="tel:+1(226)220-0555" className="text-2xl font-bold text-white">+1 (226) 220-0555</a>
                 </div>
               </div>
               <div className='flex flex-row items-center justify-center w-full h-10 pb-2'>
