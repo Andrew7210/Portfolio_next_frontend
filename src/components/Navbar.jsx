@@ -4,37 +4,41 @@ import Link from 'next/link';
 import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
 import { motion, AnimatePresence } from "framer-motion"
 
+const generateLink = (i) => {
+  switch (i) {
+    case 0: return '/';
+    case 1: return '/projects';
+    case 2: return '/contact';
+    default: return '/';
+  }
+};
+
 const MenuItems = ({ isMobile, active, setActive, setIsOpen, inputs}) => {
-  const generateLink = (i) => {
-    switch (i) {
-      case 0: return '/';
-      case 1: return '/projects';
-      case 2: return '/contact';
-      default: return '/';
-    }
-  };
+  
   return (
     <ul className={`list-none flexCenter flex-row  ${isMobile && 'flex-col h-full'}`}>
       {/* for the map i is the index */}
       {['.about()', '.projects()', '.contact()'].map((item, i) => (
-        <motion.li
-          key={i}
-          onClick={() => {
-            setActive(item);
-            setIsOpen(false);
-            inputs.value = !inputs.value
-          }}
-          className={`flex flex-row w-[2.6] items-center font-poppins font-semibold text-gray-500 hover:text-white mx-3
-          ${active === item
-            ? 'text-white '
-            : 'text-nft-gray-3'}`}
-        >
-          <Link className={`${isMobile && 'text-3xl p-4'}`} href={generateLink(i)}>{item}</Link>
-        </motion.li>
+        isMobile && (
+          <motion.li key={i}
+            onClick={() => {
+              setActive(item);
+              setIsOpen(false);
+              inputs.value = !inputs.value
+            }}>
+            <Link className='text-3xl p-4' href={generateLink(i)}>{item}</Link>
+          </motion.li>
+        )
+        
       ))}
     </ul>
   );
 };
+
+
+
+
+
 const checkActive = (active, setActive, router) => {
   switch (router.pathname) {
     case '/':
@@ -64,20 +68,45 @@ const Navbar = () => {
   useEffect(() => {
     checkActive(active, setActive, router);
   }, [router.pathname]);
+  const { rive4, RiveComponent:About } = useRive({
+    src: "rive/electrified_button.riv",
+    artboard:"about",
+    stateMachines: "button",
+    autoplay: true,
+  });
+  const { rive:rive1, RiveComponent:Project } = useRive({
+    src: "rive/electrified_button.riv",
+    artboard:"project",
+    stateMachines: "button",
+    autoplay: true,
+  });
+  const { rive:rive2, RiveComponent:Contact } = useRive({
+    src: "rive/electrified_button.riv",
+    artboard:"contact",
+    stateMachines: "button",
+    autoplay: true,
+  }); 
   return (
     /* for the nagivation bar */
-    <nav className="fixed z-50 w-full h-20 bg-black bg-opacity-70 flexCenter md:justify-end ">
+    <nav className="fixed z-50 w-full h-16 bg-black bg-opacity-70 flexCenter md:justify-end ">
       <div className='flex flex-row w-2/3 md:hidden flexBetween'>
         <div className="flex flex-row justify-start flex-1">
           <div className="cursor-pointer flexCenter ">
             <p className="ml-1 text-4xl font-bold text-purple-700">{active}</p>
           </div>
         </div>
-  
         {/* this is the div for the large screen  */}
-        <div className="flex flex-row justify-end flex-initial">
+        <div className="flex flex-row justify-end flex-initial items-center">
           <div className="flex">
-            <MenuItems active={active} setActive={setActive} setIsOpen={setIsOpen} inputs={bumpInput} />
+            <motion.li className='h-16 w-32'>
+              <Link className='h-16 w-32 flex' href={generateLink(0)}><div className='h-16 w-40'><About /></div ></Link>
+            </motion.li>
+            <motion.li className='h-16 w-32'>
+              <Link className='h-16 w-32 flex' href={generateLink(1)}><div className='h-16 w-40'><Project /></div ></Link>
+            </motion.li>
+            <motion.li  className='h-16 w-32'>
+              <Link className='h-16 w-32 flex' href={generateLink(2)}><div className='h-16 w-40'><Contact /></div ></Link>
+            </motion.li>
           </div>
         </div>
 
