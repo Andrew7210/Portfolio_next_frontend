@@ -8,7 +8,7 @@ import { items } from "../pages/data.js";
 function Card({ id, title, category, backgroundColor, setselected, setselectid }) {
   return (
     <li  className={`card`} onClick={() => {setselected(true); setselectid(id)} }>
-      <div className="card-content-container">
+      <div className="card-content-container cursor-pointer">
         <motion.div className="bg-gray-700 card-content" layoutId={`card-container-${id}`} whileHover={{scale:1.1, boxShadow: `0 0 50px ${backgroundColor}`}} >
           <motion.div
             className="card-image-container"
@@ -35,7 +35,7 @@ function Item({ id, setselected, setselectid }) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2, delay: 0.1 }}
-        style={{ pointerEvents: "auto" }}
+        style={{ pointerEvents: "auto", cursor: "pointer" }}
         className= {`overlay z-20 ${id}`}
         onClick={()=>{setselected(false); setselectid("")}}
       >

@@ -48,11 +48,10 @@ const IntroToGame = () => {
   return (
     <div ref={ref}  className='relative w-full overflow-hidden h-[200vh]'>
       <div className={`${show ? "": "hidden"}`}>
-        <RiveComponent  className='absolute w-full h-full -z-5 right-[50%] rotate-[30deg] scale-150' />
+        <RiveComponent  className='absolute w-screen h-screen top-[50vh] -z-5 right-[50%] rotate-[30deg] scale-150' />
         <motion.div  className='flex top-0 fixed flex-col items-center justify-center w-full h-full' >
           <motion.div  className='flex flex-col items-center justify-center text-center' onHoverStart={()=>activeInput.value=true} onHoverEnd={()=>activeInput.value=false}>
             <motion.h1 style={{y:y2,rotateX:rotateX2}} className='p-3 text-3xl font-bold text-white z-30 top-1/2'>Let's start our trip to the Game and Animation </motion.h1>
-            <motion.h1 style={{y,rotateX}} className='max-w-5xl p-3 text-6xl font-bold text-white'>Hope your enjoy it !</motion.h1>
             <motion.h1 style={{y,rotateX}} className='max-w-5xl p-3 text-6xl font-bold text-white'>Now keep scrolling</motion.h1>
             <ScrollIndicator className='w-[200px] h-[200px] pt-20' />
           </motion.div>

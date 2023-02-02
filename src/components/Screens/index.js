@@ -6,4 +6,5 @@ import Network from './Network'
 import IntroToGame from './IntroToGame'
 import SuperMarioScene from './SuperMarioScene'
 import HolwsCastleScene from './HolwsCastleScene'
-export {Introduce, Education, Learning, WorkExperience, Network, IntroToGame, SuperMarioScene, HolwsCastleScene};
+import FinalScreen from './FinalScreen'
+export {Introduce, Education, Learning, WorkExperience, Network, IntroToGame, SuperMarioScene, HolwsCastleScene, FinalScreen};

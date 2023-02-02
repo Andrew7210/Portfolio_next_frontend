@@ -3,7 +3,7 @@ import Spline from '@splinetool/react-spline'
 import { Typewriter } from 'react-simple-typewriter'
 const Introduce = ({setloaded}) => {
   return (
-    <div className='flex items-center w-full adjustheight'>
+    <div className='flex items-center w-full adjustheight snap-center'>
       <div className='flex flex-col justify-center pl-[5vw]'>
         <h2 className='max-w-5xl text-5xl font-bold text-white '>&lt;head&gt;</h2>
         <div className='pl-[5vw] z-10 pointer-events-none'>

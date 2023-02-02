@@ -20,7 +20,7 @@ const Learning = () => {
   }, [age])
   
   return (
-    <div className='relative w-full overflow-hidden h-screen'>
+    <div className='relative w-full overflow-hidden h-screen snap-center'>
       <ScrollText className="absolute w-full" speed={-10}>
         <div className='w-[200px] h-10 mx-2 bg-white'>
           test

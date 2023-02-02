@@ -42,7 +42,7 @@ const WorkExperience = () => {
   }
   
   return (
-    <div className='relative w-full h-screen'>
+    <div className='relative w-full h-screen snap-center'>
       <Lottie lottieRef={lottieRef} animationData={background} loop={true} className='absolute w-full h-full opacity-10' />
       <div className='flex flex-row items-center justify-center h-full'>
         {clicked &&

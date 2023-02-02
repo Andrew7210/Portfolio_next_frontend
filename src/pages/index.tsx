@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {Education, Introduce,Learning, WorkExperience, Network, IntroToGame, SuperMarioScene, HolwsCastleScene}from '../components/Screens'
+import {Education, Introduce,Learning, WorkExperience, Network, IntroToGame, SuperMarioScene, HolwsCastleScene,FinalScreen}from '../components/Screens'
 import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
 import {motion, AnimatePresence } from 'framer-motion';
 const index = () => {
@@ -26,17 +26,17 @@ const index = () => {
   return (
     <>
       <div className="flex flex-col w-full">
-        {/* <AnimatePresence>
+        <AnimatePresence>
           {showScreen && (
-            <motion.div className={`fixed flex flex-col top-0 items-center w-screen h-screen bg-[#140e20] z-30`}>
-              <RiveComponent className='w-full h-1/2 top-16' />
+            <motion.div className={`fixed flex flex-col top-0 items-center w-screen h-screen bg-[#140e20] z-30`} exit={{rotateX:90, y:"-50vh", transition:{duration:1}}}>
+              <RiveComponent className='w-full h-1/2 top-20 relative' />
               { !loaded ?
                 <div className="scale-150 homeloader top-1/2">
                   <span>Loading</span>
                   <span>Loading</span>
                 </div>
               :
-                <RiveButton className={`h-[250px] w-[500px] top-16 ${loaded ? "flex" : "hidden"}`} 
+                <RiveButton className={`h-[250px] w-[500px] relative top-20 ${loaded ? "flex" : "hidden"}`} 
                   onMouseEnter={()=>robotInput.value=2} 
                   onMouseLeave={()=>robotInput.value=1}
                   onClick={() => setShowScreen(false)} />
@@ -47,12 +47,12 @@ const index = () => {
         <Introduce setloaded={setloaded}/>
         <Education />
         <Learning />
-        <WorkExperience /> */}
+        <WorkExperience />
         <Network /> 
         <IntroToGame />
         <SuperMarioScene showRest={setShowrest} />
         {showrest && <HolwsCastleScene />}
-        <Network />
+        {showrest && <FinalScreen />}
       </div>
     </>
   )
