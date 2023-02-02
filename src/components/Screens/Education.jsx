@@ -49,7 +49,7 @@ function Item({ id, setselected, setselectid }) {
 }
 
 const FloatingCard = ({style, Lotti, text1, text2}) => (
-  <div className={`absolute gradientshadow ${style}`}>
+  <motion.div className={`absolute gradientshadow  ${style}`}>
     <div className='flex flex-row items-center justify-center rounded-2xl'>
         <Lottie animationData={Lotti} loop={true} className='w-28 h-28'/>
         <div className="flex flex-col items-center justify-center p-4 ">
@@ -58,7 +58,7 @@ const FloatingCard = ({style, Lotti, text1, text2}) => (
           <div className=''></div>
         </div>
     </div>
-  </div >
+  </motion.div >
 )
 const Education = () => {
   const [selected, setSelected] = useState(false)
@@ -84,7 +84,7 @@ const Education = () => {
         <h2 className='pb-20 text-6xl font-bold text-white '>My Education and Achievement</h2>
         <div className='flex flex-col items-center justify-center w-1/2'>
           <div className='flex justify-start w-full'>
-            <motion.div  onClick={()=>{setSelected(true); setSchool("waterloo")}} whileHover={{scale:1.1, boxShadow: `0 0 50px orange`}} className='flex flex-row items-center justify-center my-3 bg-orange-300 rounded-3xl bg-opacity-20 backdrop-blur-lg' layoutId={`card-container-waterloo`}>
+            <motion.div  onClick={()=>{setSelected(true); setSchool("waterloo")}} whileHover={{scale:1.1, boxShadow: `0 0 50px orange`}} className='flex flex-row items-center justify-center my-3 bg-orange-300 rounded-3xl bg-opacity-20 backdrop-blur-lg cursor-pointer' layoutId={`card-container-waterloo`}>
               <motion.div  className='w-[200px] h-[200px] rounded-full overflow-hidden' layoutId='card-image-container-waterloo'>
                 <img className='object-cover w-[200px] h-[200px] ' src='waterloo.png' alt='waterloo' />
               </motion.div>
@@ -96,7 +96,7 @@ const Education = () => {
             </motion.div>
           </div>
           <div className='flex justify-end w-full pt-6'>
-            <motion.div onClick={()=>{setSelected(true); setSchool("wilfrid")}} whileHover={{scale:1.1, boxShadow: `0 0 80px purple`}} className='flex flex-row items-center justify-center my-3 bg-purple-500 rounded-3xl bg-opacity-20 backdrop-blur-lg' layoutId={`card-container-wilfrid`}>
+            <motion.div onClick={()=>{setSelected(true); setSchool("wilfrid")}} whileHover={{scale:1.1, boxShadow: `0 0 80px purple`}} className='flex flex-row items-center justify-center my-3 bg-purple-500 rounded-3xl bg-opacity-20 backdrop-blur-lg cursor-pointer' layoutId={`card-container-wilfrid`}>
               <motion.div className='flex flex-col items-end px-3' layoutId={`title-container-wilfrid`}>
                 <h2 className='text-3xl font-bold text-white '>Wilfrid Laurier University</h2>
                 <h2 className='text-3xl font-bold text-white '>Bachelor of Business Administration</h2>

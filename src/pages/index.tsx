@@ -44,6 +44,7 @@ const index = () => {
             </motion.div>
           )}
         </AnimatePresence>
+        {showScreen && <div className="h-[500vh] w-screen"></div>}
         <Introduce setloaded={setloaded}/>
         <Education />
         <Learning />

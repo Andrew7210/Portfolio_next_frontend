@@ -1,8 +1,8 @@
 import React from 'react'
-import SuperMario from '../components/Characters/HolwsCastle'
+import {Education, Introduce,Learning, WorkExperience, Network, IntroToGame, SuperMarioScene, HolwsCastleScene,FinalScreen}from '../components/Screens'
 function test() {
   return (
-    <div className='h-full'><SuperMario /></div>
+    <Education />
   )
 }
 
