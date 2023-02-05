@@ -25,7 +25,11 @@ const MenuItems = ({ isMobile, active, setActive, setIsOpen, inputs}) => {
               setActive(item);
               setIsOpen(false);
               inputs.value = !inputs.value
-            }}>
+            }}
+            className={`flex flex-row w-[2.6] items-center font-poppins font-semibold text-gray-500 hover:text-white mx-3
+            ${active === item
+              ? 'text-white '
+              : 'text-nft-gray-3'}`}>
             <Link className='text-3xl p-4' href={generateLink(i)}>{item}</Link>
           </motion.li>
         )
@@ -60,7 +64,7 @@ const Navbar = () => {
   const [active, setActive] = useState('.about()');
   const [isOpen, setIsOpen] = useState(false);
   const { rive, RiveComponent } = useRive({
-    src: "rive/menu_button.riv",
+    src: "/rive/menu_button.riv",
     stateMachines: "switch",
     autoplay: true,
   });
@@ -69,19 +73,19 @@ const Navbar = () => {
     checkActive(active, setActive, router);
   }, [router.pathname]);
   const { rive:rive4, RiveComponent:About } = useRive({
-    src: "rive/electrified_button.riv",
+    src: "/rive/electrified_button.riv",
     artboard:"about",
     stateMachines: "button",
     autoplay: true,
   });
   const { rive:rive1, RiveComponent:Project } = useRive({
-    src: "rive/electrified_button.riv",
+    src: "/rive/electrified_button.riv",
     artboard:"project",
     stateMachines: "button",
     autoplay: true,
   });
   const { rive:rive2, RiveComponent:Contact } = useRive({
-    src: "rive/electrified_button.riv",
+    src: "/rive/electrified_button.riv",
     artboard:"contact",
     stateMachines: "button",
     autoplay: true,

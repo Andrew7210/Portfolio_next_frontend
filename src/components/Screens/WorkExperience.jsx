@@ -41,6 +41,14 @@ const WorkExperience = () => {
     
   }
   
+  const move = {
+    hidden: {opacity:0},
+    show:{
+      opacity:1,
+      transition:{delayChildren: 1, staggerChildren: 0.2}
+    }
+  }
+
   return (
     <div className='relative w-full h-screen snap-center'>
       <Lottie lottieRef={lottieRef} animationData={background} loop={true} className='absolute w-full h-full opacity-10' />
@@ -77,14 +85,16 @@ const WorkExperience = () => {
           <motion.div animate={closeControl} className={`z-10 w-1/2 h-3/4 ${clicked ? ' absolute': 'relative'}`}><RiveComponent  /></motion.div>
 
         <div className='flex flex-col items-start justify-center w-1/2 h-full'>
-          <h2 className='w-full pb-10 text-6xl font-bold text-center text-white '>Work Experience</h2>
-          <div className='flex flex-row flex-wrap items-center justify-center w-full grid-cols-2 gap-10'>
+          <motion.h2 initial={{opacity:0, y:-100}} whileInView={{opacity:1, y:0, transition:{duration:1}}} className='w-full pb-10 text-6xl font-bold text-center text-white'>Work Experience</motion.h2>
+          <motion.div variants={move} initial='hidden' whileInView='show' className='flex flex-row flex-wrap items-center justify-center w-full grid-cols-2 gap-10'>
             <motion.div layoutId='workbox-1' className='workBox w-[500px] h-[200px]' style={{"--clr":"#2480c7"}} onHoverStart={()=>breakInput.value=false} onHoverEnd={()=>breakInput.value=true} onClick={()=>{
               setClicked(true)
               closeImage()
               setSelectId(1)
-            }}>
-              <div className='content'>
+            }}
+            variants={move}
+            >
+              <motion.div className='content'>
                 <motion.div className='icon' layoutId='iconbox-1'></motion.div>
                 <motion.div className='text' layoutId='boxtext-1'>
                   <motion.h1 className='text-4xl' layoutId='boxtitle-1'>RBC</motion.h1>
@@ -96,14 +106,16 @@ const WorkExperience = () => {
                   </motion.div>
                   <motion.p className='pt-3 text-xl' layoutId='boxdetail-1'>*Click to see more details</motion.p>
                 </motion.div>
-              </div>
+              </motion.div>
             </motion.div>
             <motion.div layoutId='workbox-2' className='workBox w-[500px] h-[200px]' style={{"--clr":"#2480c7"}} onHoverStart={()=>breakInput.value=false} onHoverEnd={()=>breakInput.value=true} onClick={()=>{
               setClicked(true)
               closeImage()
               setSelectId(2)
-            }}>
-              <div className='content'>
+            }}
+            variants={move}
+            >
+              <motion.div  className='content'>
                 <motion.div className='icon' layoutId='iconbox-2'></motion.div>
                 <motion.div className='text' layoutId='boxtext-2'>
                   <motion.h1 className='text-4xl' layoutId='boxtitle-2'>123213213213</motion.h1>
@@ -115,9 +127,9 @@ const WorkExperience = () => {
                   </motion.div>
                   <motion.p className='pt-3 text-xl' layoutId='boxdetail-2'>*Click to see more details</motion.p>
                 </motion.div>
-              </div>
+              </motion.div>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

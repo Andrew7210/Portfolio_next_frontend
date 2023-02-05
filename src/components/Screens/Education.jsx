@@ -16,12 +16,13 @@ function Item({ id, setselected, setselectid }) {
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2, delay: 0.1 }}
         style={{ pointerEvents: "auto" }}
-        className= {`overlay z-20 ${id}`}
+        className= {`overlay cursor-pointer z-20 ${id}`}
         onClick={()=>{setselected(false); setselectid("")}}
       >
       </motion.div>
       <div className="z-30 card-content-container open ">
         <motion.div className={`card-content bg-opacity-20 backdrop-blur-xl ${id==="waterloo"? "bg-orange-300" : "bg-purple-500"}`} layoutId={`card-container-${id}`}>
+          <div className='w-20 h-20 absolute top-10 right-10 text-white text-5xl cursor-pointer' onClick={()=>{setselected(false); setselectid("")}}><i class="fa-solid fa-xmark"></i></div>
           <motion.div
             className="object-cover w-[200px] h-[200px] rounded-full overflow-hidden"
             layoutId={`card-image-container-${id}`}
@@ -35,7 +36,7 @@ function Item({ id, setselected, setselectid }) {
             <h2 className='text-3xl font-bold text-white'>{id==="waterloo"? "University of Waterloo" : "Wilfrid Laurier University"}</h2>
             <h2 className='text-3xl font-bold text-white'>{id==="waterloo"? "Bachelor of Computer Science" : "Bachelor of Business Administration"}</h2>
           </motion.div>
-          <motion.div className="content-container" animate>
+          <motion.div className="content-container" >
             <LoremIpsum
               p={12}
               avgWordsPerSentence={10}
@@ -48,8 +49,10 @@ function Item({ id, setselected, setselectid }) {
   );
 }
 
-const FloatingCard = ({style, Lotti, text1, text2}) => (
-  <motion.div className={`absolute gradientshadow  ${style}`}>
+const FloatingCard = ({style, Lotti, text1, text2, delay}) => (
+  <motion.div className={`absolute gradientshadow  ${style}`}
+  initial={{ opacity: 0, y:100 }} whileInView={{ opacity: 1, y:0, transition: { delay:delay,duration:1 } }} 
+  >
     <div className='flex flex-row items-center justify-center rounded-2xl'>
         <Lottie animationData={Lotti} loop={true} className='w-28 h-28'/>
         <div className="flex flex-col items-center justify-center p-4 ">
@@ -75,16 +78,20 @@ const Education = () => {
   });
   return (
     <div className='relative w-full h-screen snap-center'>
-      <FloatingCard style={"right-60 top-[40%] md:top-[10%]"} Lotti={certificate} text1={"Euclid Contest"} text2={"Certificate of distinction"}/>
-      <FloatingCard style={"left-[7%] top-[15%]"} Lotti={medal} text1={"BDO New Venture Competition"} text2={"2021 Semi-finalist"}/>
-      <FloatingCard style={"left-[15%] bottom-[15%]"} Lotti={roger} text1={"Dean's Honour Roll"} text2={"Year 2020, 2021, 2022"}/>
+      <FloatingCard delay={0} style={"right-60 top-[40%] md:top-[10%]"} Lotti={certificate} text1={"Euclid Mathematics Contest"} text2={"Certificate of Distinction"}/>
+      <FloatingCard delay={0.2} style={"left-[7%] top-[15%]"} Lotti={medal} text1={"BDO New Venture Competition"} text2={"2021 Semi-finalist"}/>
+      <FloatingCard delay={0.4} style={"left-[15%] bottom-[15%]"} Lotti={roger} text1={"Dean's Honour Roll"} text2={"Year 2020, 2021, 2022"}/>
       <RiveComponent className='absolute w-full -z-5 adjustheight' />
       <Scan className='absolute w-full adjustheight' />
       <div className='relative z-20 flex flex-col items-center justify-center w-full h-full'>
-        <h2 className='pb-20 text-6xl font-bold text-white '>My Education and Achievement</h2>
+        <motion.h2 className='pb-20 text-6xl font-bold text-white '
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1, transition: { duration:1 } }}
+        >My Education and Achievement</motion.h2>
         <div className='flex flex-col items-center justify-center w-1/2'>
           <div className='flex justify-start w-full'>
-            <motion.div  onClick={()=>{setSelected(true); setSchool("waterloo")}} whileHover={{scale:1.1, boxShadow: `0 0 50px orange`}} className='flex flex-row items-center justify-center my-3 bg-orange-300 rounded-3xl bg-opacity-20 backdrop-blur-lg cursor-pointer' layoutId={`card-container-waterloo`}>
+            <motion.div  onClick={()=>{setSelected(true); setSchool("waterloo")}} whileHover={{scale:1.1, boxShadow: `0 0 50px orange`}} className='flex flex-row items-center justify-center my-3 bg-orange-300 rounded-3xl bg-opacity-20 backdrop-blur-lg cursor-pointer' layoutId={`card-container-waterloo`}
+              initial={{ opacity: 0, x:-200 }} whileInView={{ opacity: 1, x:0, transition: { delay:0,duration:1 } }}
+            >
               <motion.div  className='w-[200px] h-[200px] rounded-full overflow-hidden' layoutId='card-image-container-waterloo'>
                 <img className='object-cover w-[200px] h-[200px] ' src='waterloo.png' alt='waterloo' />
               </motion.div>
@@ -96,7 +103,8 @@ const Education = () => {
             </motion.div>
           </div>
           <div className='flex justify-end w-full pt-6'>
-            <motion.div onClick={()=>{setSelected(true); setSchool("wilfrid")}} whileHover={{scale:1.1, boxShadow: `0 0 80px purple`}} className='flex flex-row items-center justify-center my-3 bg-purple-500 rounded-3xl bg-opacity-20 backdrop-blur-lg cursor-pointer' layoutId={`card-container-wilfrid`}>
+            <motion.div onClick={()=>{setSelected(true); setSchool("wilfrid")}} whileHover={{scale:1.1, boxShadow: `0 0 80px purple`}} className='flex flex-row items-center justify-center my-3 bg-purple-500 rounded-3xl bg-opacity-20 backdrop-blur-lg cursor-pointer' layoutId={`card-container-wilfrid`}
+             initial={{ opacity: 0, x:200 }} whileInView={{ opacity: 1, x:0, transition: { delay:0.2,duration:1 } }}>
               <motion.div className='flex flex-col items-end px-3' layoutId={`title-container-wilfrid`}>
                 <h2 className='text-3xl font-bold text-white '>Wilfrid Laurier University</h2>
                 <h2 className='text-3xl font-bold text-white '>Bachelor of Business Administration</h2>

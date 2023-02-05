@@ -42,6 +42,7 @@ function Item({ id, setselected, setselectid }) {
       </motion.div>
       <div className="z-30 card-content-container open ">
         <motion.div className="bg-gray-700 card-content" layoutId={`card-container-${id}`}>
+          <div className='w-20 h-20 absolute top-10 right-10 text-white text-5xl cursor-pointer z-40' onClick={()=>{setselected(false); setselectid("")}}><i class="fa-solid fa-xmark"></i></div>
           <motion.div
             className="card-image-container"
             layoutId={`card-image-container-${id}`}

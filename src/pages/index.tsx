@@ -47,8 +47,8 @@ const index = () => {
         {showScreen && <div className="h-[500vh] w-screen"></div>}
         <Introduce setloaded={setloaded}/>
         <Education />
-        <Learning />
         <WorkExperience />
+        <Learning />
         <Network /> 
         <IntroToGame />
         <SuperMarioScene showRest={setShowrest} />

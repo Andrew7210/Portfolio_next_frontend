@@ -46,8 +46,6 @@ const Learning = () => {
           </div>
           <h1 className='max-w-5xl p-3 text-6xl font-bold text-white'>But I want to be much faster than others</h1>
           <h1 className='max-w-5xl p-3 text-6xl font-bold text-white'>All components scrolling are skills I learned myself</h1>
-          <h1 className='max-w-5xl p-3 text-4xl font-bold text-white'>Feel free to keep scroolling and </h1>
-          <h1 className='max-w-5xl p-3 text-3xl font-bold text-white'>check</h1>
         </div>
         <RiveComponent className='z-10 w-1/2 h-[90%]' />
       </div>
