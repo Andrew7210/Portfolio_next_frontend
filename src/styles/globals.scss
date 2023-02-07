@@ -259,11 +259,14 @@ li {
 }
 
 .open .card-content {
-  
   height: 90vh;
   width: 70vw;
   overflow-x:hidden;
   overflow-y: scroll;
+  padding: 20px;
+  @media (max-width: 990px) {
+    width: 90vw;
+  }
 }
 
 .card-open-link {
