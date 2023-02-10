@@ -4,9 +4,11 @@ import {motion, AnimatePresence, useAnimationControls} from "framer-motion";
 import Lottie from "lottie-react";
 import { LoremIpsum } from "react-lorem-ipsum";
 import background from "public/lotti/workBackground.json"
+import { urlFor, client } from '../../lib/sanity.client.ts';
+import {PortableText} from "@portabletext/react";
 const WorkExperience = () => {
   const [clicked, setClicked] = useState(false)
-  const [selectId, setSelectId] = useState(0)
+  const [selectId, setSelectId] = useState(-1)
   const closeControl = useAnimationControls()
   const { rive, RiveComponent} = useRive({
     src: "rive/toemater_timer.riv",
@@ -45,90 +47,100 @@ const WorkExperience = () => {
     hidden: {opacity:0},
     show:{
       opacity:1,
-      transition:{delayChildren: 1, staggerChildren: 0.2}
+      transition:{duration:1}
     }
   }
 
+  const [works, setWorks] = useState([])
+  useEffect(() => {
+    const workQuery = '*[_type == "work"] | order(end desc)'
+    client.fetch(workQuery).then((data) => {
+      setWorks(data);
+    });
+  }, [])
+  useEffect(() => {
+    console.log(works);
+  }, [works])
+  const components = {
+    listItem: {
+      bullet: ({children}) => <li className="list-disc">{children}</li>
+    },
+    marks: {
+      strong: ({children}) => <strong className='text-white'>{children}</strong>,
+    }
+  }
   return (
     <div className='relative w-full h-screen snap-center'>
       <Lottie lottieRef={lottieRef} animationData={background} loop={true} className='absolute w-full h-full opacity-10' />
-      <div className='flex flex-row items-center justify-center h-full'>
+      <div className='flex flex-row items-center justify-center h-full md:flex-col'>
         {clicked &&
           <AnimatePresence>
-            <motion.div layoutId={`workbox-${selectId}`} className='w-[30%] ml-10 workBoxshow ' style={{"--clr":"#2480c7"}} onClick={()=>{
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2, delay: 0.1 }}
+                style={{ pointerEvents: "auto" }}
+                className= {`overlay cursor-pointer z-20`}
+                onClick={()=>{setClicked(false); setSelectId(-1);openImage()}}
+              >
+            </motion.div>
+            <motion.div layoutId={`workbox-${selectId}`}  className='w-[40%] ml-10 workBoxshow z-30 md:fixed md:w-[90%]' style={{"--clr":`${works[selectId].color.hex}`}} onClick={()=>{
               setClicked(false)
               openImage()
-              setSelectId(0)
+              setSelectId(-1)
               }}>
-              <div className='content max-h-[50vh] overflow-y-scroll '>
-                <motion.div className='icon' layoutId={`iconbox-${selectId}`}></motion.div>
-                <motion.div className='text' layoutId={`boxtext-${selectId}`}>
-                  <motion.h1 className='text-4xl' layoutId={`boxtitle-${selectId}`}>RBC</motion.h1>
-                  <motion.p className='text-2xl font-bold' layoutId={`boxjob-${selectId}`}>Technological system analyst</motion.p>
-                  <motion.div className='flex flex-row items-center justify-center gap-5' layoutId={`boxtime-${selectId}`}>
-                    <h3>01-2022</h3>
-                    <h1 className='text-2xl'>to</h1>
-                    <h3>01-2022</h3>
+              
+              <div className='content max-h-[75vh] overflow-y-scroll'>
+                <div className='flex flex-row items-center'>
+                  <motion.div className='icon' layoutId={`iconbox-${selectId}`}><img src={urlFor(works[selectId].image)} /></motion.div>
+                  <motion.div className='text pl-10' layoutId={`boxtext-${selectId}`}>
+                    <motion.h1 className='text-4xl' layoutId={`boxtitle-${selectId}`}>{"name" in works[selectId] ? `${works[selectId].title} (${works[selectId].name})` : `${works[selectId].title}`}</motion.h1>
+                    <motion.p className='text-2xl font-bold' layoutId={`boxjob-${selectId}`}>{works[selectId].job}</motion.p>
+                    <motion.div className='flex flex-row items-center gap-5' layoutId={`boxtime-${selectId}`}>
+                      <h3>{works[selectId].begin}</h3>
+                      <h1 className='text-2xl'>to</h1>
+                      <h3>{works[selectId].end}</h3>
+                    </motion.div>
                   </motion.div>
-                  <motion.p className='pt-3 text-xl' layoutId={`boxdetail-${selectId}`}><LoremIpsum
-              p={12}
-              avgWordsPerSentence={10}
-              avgSentencesPerParagraph={10}
-            /></motion.p>
-                </motion.div>
+                </div>
+                <motion.p className='p-5 text-2xl text-gray-400' layoutId={`boxdetail-${selectId}`}>
+                  <PortableText value={works[selectId].description} components={components} />
+                </motion.p>
               </div>
               <i></i>
               <i></i>
             </motion.div>
           </AnimatePresence>
           }
-          <motion.div animate={closeControl} className={`z-10 w-1/2 h-3/4 ${clicked ? ' absolute': 'relative'}`}><RiveComponent  /></motion.div>
+          <motion.div animate={closeControl} className={`z-10 w-1/2 h-3/4 md:w-full md:h-1/2 ${clicked ? ' absolute': 'relative'}`}><RiveComponent  /></motion.div>
 
-        <div className='flex flex-col items-start justify-center w-1/2 h-full'>
-          <motion.h2 initial={{opacity:0, y:-100}} whileInView={{opacity:1, y:0, transition:{duration:1}}} className='w-full pb-10 text-6xl font-bold text-center text-white'>Work Experience</motion.h2>
-          <motion.div variants={move} initial='hidden' whileInView='show' className='flex flex-row flex-wrap items-center justify-center w-full grid-cols-2 gap-10'>
-            <motion.div layoutId='workbox-1' className='workBox w-[500px] h-[200px]' style={{"--clr":"#2480c7"}} onHoverStart={()=>breakInput.value=false} onHoverEnd={()=>breakInput.value=true} onClick={()=>{
+        <div className='flex flex-col items-start justify-center w-1/2 h-full md:w-full md:h-3/4'>
+          <motion.h2 initial={{opacity:0, y:-100}} whileInView={{opacity:1, y:0, transition:{duration:1}}} className='w-full pb-10 text-6xl font-bold text-center text-white md:text-4xl'>Work Experience</motion.h2>
+          <motion.div  className='flex flex-row flex-wrap items-center justify-center w-full grid-cols-2 gap-10 md:gap-6'>
+            {works.map((work, index) => 
+              <motion.div layoutId={`workbox-${index}`} className='workBox w-[500px] h-[200px] md:w-[43vw] md:h-[15vh]' style={{"--clr":`${work.color.hex}`}} onHoverStart={()=>breakInput.value=false} onHoverEnd={()=>breakInput.value=true} onClick={()=>{
               setClicked(true)
               closeImage()
-              setSelectId(1)
+              setSelectId(index)
             }}
-            variants={move}
+            variants={move} initial="hidden" whileInView="show"
             >
-              <motion.div className='content'>
-                <motion.div className='icon' layoutId='iconbox-1'></motion.div>
-                <motion.div className='text' layoutId='boxtext-1'>
-                  <motion.h1 className='text-4xl' layoutId='boxtitle-1'>RBC</motion.h1>
-                  <motion.p className='text-2xl font-bold' layoutId='boxjob-1'>Technological system analyst</motion.p>
-                  <motion.div className='flex flex-row items-center justify-center gap-5' layoutId='boxtime-1'>
-                    <h3>01-2022</h3>
-                    <h1 className='text-2xl'>to</h1>
-                    <h3>01-2022</h3>
+                <motion.div className='content'>
+                  <motion.div className='icon' layoutId={`iconbox-${index}`}><img src={urlFor(work.image)} /></motion.div>
+                  <motion.div className='text' layoutId={`boxtext-${index}`}>
+                    <motion.h1 className='text-4xl md:text-2xl' layoutId={`boxtitle-${index}`}>{work.title}</motion.h1>
+                    <motion.p className='text-2xl font-bold md:text-xl' layoutId={`boxjob-${index}`}>{work.job}</motion.p>
+                    <motion.div className='flex flex-row items-center justify-center gap-5 ' layoutId={`boxtime-${index}`}>
+                      <h3 className='text-2xl md:text-lg'>{work.begin.substring(0,7)}</h3>
+                      <h1 className='text-2xl md:text-lg'>to</h1>
+                      <h3 className='text-2xl md:text-lg'>{work.end.substring(0,7)}</h3>
+                    </motion.div>
+                    <motion.p className='pt-3 text-xl md:text-lg' layoutId={`boxdetail-${index}`}>*Click to see more details</motion.p>
                   </motion.div>
-                  <motion.p className='pt-3 text-xl' layoutId='boxdetail-1'>*Click to see more details</motion.p>
                 </motion.div>
               </motion.div>
-            </motion.div>
-            <motion.div layoutId='workbox-2' className='workBox w-[500px] h-[200px]' style={{"--clr":"#2480c7"}} onHoverStart={()=>breakInput.value=false} onHoverEnd={()=>breakInput.value=true} onClick={()=>{
-              setClicked(true)
-              closeImage()
-              setSelectId(2)
-            }}
-            variants={move}
-            >
-              <motion.div  className='content'>
-                <motion.div className='icon' layoutId='iconbox-2'></motion.div>
-                <motion.div className='text' layoutId='boxtext-2'>
-                  <motion.h1 className='text-4xl' layoutId='boxtitle-2'>123213213213</motion.h1>
-                  <motion.p className='text-2xl font-bold' layoutId='boxjob-2'>Technological system analyst</motion.p>
-                  <motion.div className='flex flex-row items-center justify-center gap-5' layoutId='boxtime-2'>
-                    <h3>01-2022</h3>
-                    <h1 className='text-2xl'>to</h1>
-                    <h3>01-2022</h3>
-                  </motion.div>
-                  <motion.p className='pt-3 text-xl' layoutId='boxdetail-2'>*Click to see more details</motion.p>
-                </motion.div>
-              </motion.div>
-            </motion.div>
+              )}
           </motion.div>
         </div>
       </div>

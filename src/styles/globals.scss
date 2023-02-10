@@ -314,7 +314,7 @@ h2 {
   will-change: opacity;
   top: 0;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   height: 100%
 }
 
@@ -556,7 +556,6 @@ p {
         position: relative;
         background: var(--clr);
         color: #2e2e2e;
-        font-size: 1.5rem;
         padding: 5px 10px;
         display: inline-block;
         text-decoration: none;

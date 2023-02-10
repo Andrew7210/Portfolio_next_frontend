@@ -136,10 +136,6 @@ const Education = () => {
     
   }, [])
   
-  useEffect(() => {
-    
-    console.log(selected)
-  }, [selected])
   
   return (
     <div className='relative w-full h-screen snap-center'>
