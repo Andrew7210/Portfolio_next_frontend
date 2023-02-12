@@ -85,7 +85,7 @@ const WorkExperience = () => {
                 onClick={()=>{setClicked(false); setSelectId(-1);openImage()}}
               >
             </motion.div>
-            <motion.div layoutId={`workbox-${selectId}`}  className='w-[40%] ml-10 workBoxshow z-30 md:fixed md:w-[90%]' style={{"--clr":`${works[selectId].color.hex}`}} onClick={()=>{
+            <motion.div layoutId={`workbox-${selectId}`}  className='w-[40%] ml-10 workBoxshow z-30 md:fixed md:w-[90%] md:ml-0' style={{"--clr":`${works[selectId].color.hex}`}} onClick={()=>{
               setClicked(false)
               openImage()
               setSelectId(-1)
@@ -130,7 +130,7 @@ const WorkExperience = () => {
                   <motion.div className='icon' layoutId={`iconbox-${index}`}><img src={urlFor(work.image)} /></motion.div>
                   <motion.div className='text' layoutId={`boxtext-${index}`}>
                     <motion.h1 className='text-4xl md:text-2xl' layoutId={`boxtitle-${index}`}>{work.title}</motion.h1>
-                    <motion.p className='text-2xl font-bold md:text-xl' layoutId={`boxjob-${index}`}>{work.job}</motion.p>
+                    <motion.p className='text-2xl font-bold md:text-lg' layoutId={`boxjob-${index}`}>{work.job}</motion.p>
                     <motion.div className='flex flex-row items-center justify-center gap-5 ' layoutId={`boxtime-${index}`}>
                       <h3 className='text-2xl md:text-lg'>{work.begin.substring(0,7)}</h3>
                       <h1 className='text-2xl md:text-lg'>to</h1>

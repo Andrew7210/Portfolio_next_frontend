@@ -7,7 +7,7 @@ const Introduce = ({setloaded}) => {
     hidden: {opacity:0},
     show:{
       opacity:1,
-      transition:{delayChildren: 2, staggerChildren: 0.2}
+      transition:{delayChildren: 1, staggerChildren: 0.2}
     }
   }
   return (

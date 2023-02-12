@@ -505,11 +505,13 @@ p {
 
 .parallax {
   overflow: hidden;
-  white-space: nowrap;
   display: flex;
-
+  width:100vw;
   .scroller {
     display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap:16px;
   }
 }
 

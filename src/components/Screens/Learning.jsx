@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import lines from "public/lotti/lines.json"
 import starry from "public/lotti/starry.json"
 import {motion, useMotionValue} from 'framer-motion'
+import { urlFor, client } from '../../lib/sanity.client.ts';
 import ScrollText from '../ScrollText'
 const Learning = () => {
   const [age, setAge] = useState(1);
@@ -19,35 +20,67 @@ const Learning = () => {
     }
   }, [age])
   
+
+
+  const [skills, setSkills] = useState([])
+  useEffect(() => {
+    const skillQuery = '*[_type == "skill"]'
+    client.fetch(skillQuery).then((data) => {
+      setSkills(data);
+    });
+  }, [])
+  useEffect(() => {
+    console.log(skills)
+  }, [skills])
+
   return (
-    <div className='relative w-full overflow-hidden h-screen snap-center'>
-      <ScrollText className="absolute w-full" speed={-10}>
-        <div className='w-[200px] h-10 mx-2 bg-white'>
-          test
-        </div>
-      </ScrollText>
-      <ScrollText className="absolute bottom-0 w-full" speed={10}>
-        <div className='w-[300px] h-10 mx-2 bg-white'>
-          test
-        </div>
-      </ScrollText>
+    <div className='relative w-full overflow-hidden h-screen snap-center flex flex-col'>
       <Lottie animationData={lines} loop={true} className='absolute w-full h-full opacity-[0.05]'/>
       <Lottie animationData={starry} loop={true} className='absolute w-full h-full scale-150 rotate-90'/>
-      <div className='flex flex-row items-center w-full h-full'>
-        <div className='flex flex-col items-start pl-[5%]'>
-          <h1 className='p-3 text-3xl font-bold text-white'>Live and learn</h1>
-          <h1 className='max-w-5xl p-3 text-6xl font-bold text-white'>Knowledge and skills from school and work is far from enough for me</h1>
-          <h1 className='max-w-5xl p-3 text-6xl font-bold text-white'>Every will go through following steps</h1>
-          <div className='flex flex-row items-center justify-start'>
+      <div className='flex flex-row items-center h-full relative z-10'>
+        <div className='flex flex-col items-start pl-[5%] md:w-1/2'>
+          <h1 className='pl-3 text-4xl font-bold text-white md:text-2xl'>Live and learn</h1>
+          <h1 className='max-w-5xl p-3 text-6xl font-bold text-white md:text-4xl'>Knowledge and skills from school and work is far from enough for me</h1>
+          <h1 className='max-w-5xl p-3 text-3xl font-bold text-gray-300 md:text-2xl'>Learning is a lifelong process of keeping abreast of change</h1>
+          <div className='flex flex-row items-center justify-start flex-wrap'>
             <button className="m-3 skillButton" style={{'--clr': 'rgb(64, 52, 177)'}} onClick={()=>setAge(0)} ><span>Beginner</span><i></i></button>
             <button className="m-3 skillButton" style={{'--clr': 'rgb(102, 13, 204)'}} onClick={()=>setAge(1)} ><span>Junior</span><i></i></button>
             <button className="m-3 skillButton" style={{'--clr': 'rgb(184, 11, 184)'}} onClick={()=>setAge(2)} ><span>Senior</span><i></i></button>
             <button className="m-3 skillButton" style={{'--clr': 'rgb(187, 20, 112)'}} onClick={()=>setAge(3)} ><span>Professional</span><i></i></button>
           </div>
-          <h1 className='max-w-5xl p-3 text-6xl font-bold text-white'>But I want to be much faster than others</h1>
-          <h1 className='max-w-5xl p-3 text-6xl font-bold text-white'>All components scrolling are skills I learned myself</h1>
+          <h1 className='max-w-5xl p-3 text-3xl font-bold text-gray-300 md:text-2xl'>But I want to be much faster than others</h1>
+          
+          <h1 className='max-w-5xl p-3 text-2xl font-bold text-gray-300 absolute bottom-0 md:text-xl'>*All blocks scrolling are technologies I have learned </h1>
         </div>
-        <RiveComponent className='z-10 w-1/2 h-[90%]' />
+        <RiveComponent className='z-10 w-1/2 h-[90%] ' />
+      </div>
+      <div className='w-full '>
+        <ScrollText  speed={-0.7} >
+          <div className='flex flex-row gap-4'>
+            {skills.map((skill, index) => 
+              <div className='bg-[#232a35] rounded-xl p-2 px-3 flex flex-row justify-start items-center w-[500px]'>
+                <img src={urlFor(skill.image)} alt="rbc" className='h-[80px] max-w-[100px] object-contain'/>
+                <div className='flex flex-col justify-center pl-3'>
+                  <h3 className='text-3xl font-bold text-white'>{skill.title}</h3>
+                  <p className='text-lg font-bold text-gray-300'>{skill.description}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </ScrollText>
+        <ScrollText  speed={0.7}>
+          <div className='flex flex-row gap-4 my-4'>
+            {skills.map((skill, index) => 
+              <div className='bg-[#232a35] rounded-xl p-2 px-3 flex flex-row justify-start items-center w-[500px]'>
+                <img src={urlFor(skill.image)} alt="rbc" className='h-[80px] max-w-[100px] object-contain'/>
+                <div className='flex flex-col justify-center pl-3'>
+                  <h3 className='text-3xl font-bold text-white'>{skill.title}</h3>
+                  <p className='text-lg font-bold text-gray-300'>{skill.description}</p>
+                </div>
+              </div>
+            )}
+          </div>
+        </ScrollText>
       </div>
     </div>
   )

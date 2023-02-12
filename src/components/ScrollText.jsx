@@ -21,7 +21,7 @@ function ParallaxText({ children, baseVelocity = 100, className }) {
    * we have four children (100% / 4). This would also want deriving from the
    * dynamically generated number of children.
    */
-  const x = useTransform(baseX, (v) => `${wrap(-(100)/12, -(100)/6, v)}%`);
+  const x = useTransform(baseX, (v) => `${wrap(-10, -60, v)}%`);
 
   const directionFactor = useRef(1);
   useAnimationFrame((t, delta) => {
@@ -41,16 +41,6 @@ function ParallaxText({ children, baseVelocity = 100, className }) {
   return (
     <div className={`parallax ${className}`}>
       <motion.div className="scroller" style={{ x }}>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
-        <span>{children} </span>
         <span>{children} </span>
         <span>{children} </span>
       </motion.div>
