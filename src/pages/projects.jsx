@@ -35,7 +35,7 @@ const Projects = () => {
           </motion.div>
         )}
       </AnimatePresence> 
-      <div className='flex flex-col'>
+      <div className='flex flex-col bg-[#040505]'>
         <div className='flex flex-row h-screen snap-start'>
           <div className='absolute top-0 right-0 w-full h-full m-0 '><Spline scene="https://prod.spline.design/HJXKk3Al5odruWDq/scene.splinecode" onLoad={()=>setTimeout(() => {
             setShowScreen(false)
