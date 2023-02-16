@@ -12,7 +12,9 @@ body {
 }
 
 html {
-  scroll-snap-type: y proximity;
+  @media (min-width: 990px) {
+    scroll-snap-type: y proximity;
+  }
 }
 
 .nft-gradient{

@@ -55,8 +55,8 @@ const Contact = () => {
           </motion.div>
         )}
       </AnimatePresence> 
-      <div className='flex flex-row w-full adjustheight'>
-        <div className='h-[92vh] w-6/12 m-5 z-10'>
+      <div className='flex flex-row w-full adjustheight md:h-[200vh] md:flex-col md:w-[95%]'>
+        <div className='h-[92vh] w-6/12 m-5 z-10 md:w-full'>
           <Spline className='overflow-auto rounded-3xl' scene="https://prod.spline.design/P22vGZm61zvNmypS/scene.splinecode" onLoad={()=>setTimeout(() => {
             setShowScreen(false)
           }, 500)}/>
@@ -66,16 +66,16 @@ const Contact = () => {
             <img src='Key.svg'></img>
           </div>
         </div>
-        <div className='flex items-center justify-center w-6/12 m-5 adjustheight'>
-          <div className='absolute top-0 w-1/2 adjustheight left-1/2 blur-2xl ' >
+        <div className='flex items-center justify-center w-6/12 m-5 adjustheight md:w-full relative'>
+          <div className='absolute top-0 w-full adjustheight blur-2xl left-0' >
             <RiveComponent />
           </div>
-            <div className="z-20 littlebox w-36 h-36 opacity-80 right-[3%] top-[15%]"></div>
-            <div className="z-20 w-40 h-40 littlebox right-[42%] bottom-[30%]"></div>
-            <div className="w-20 h-20 littlebox opacity-60 right-[17%] bottom-[7%]"></div>
-            <div className="z-0 w-36 h-36 littlebox right-[38%] top-[12%]"></div>
-            <div className="littlebox w-28 h-28 right-[4%] top-[40%]"></div>
-            <div className="z-0 littlebox w-28 h-28 right-[35%] bottom-[2%]"></div>
+          <div className="z-20 littlebox w-36 h-36 opacity-80 right-[3%] md:right-0 top-[15%]"></div>
+          <div className="z-20 w-40 h-40 littlebox left-[0%] bottom-[30%]"></div>
+          <div className="w-20 h-20 littlebox opacity-60 right-[17%] bottom-[7%] md:bottom-5"></div>
+          <div className="z-0 w-36 h-36 littlebox left-[30%] top-[6%] md:top-0"></div>
+          <div className="littlebox w-28 h-28 right-[4%] bottom-[40%]"></div>
+          <div className="z-0 littlebox w-28 h-28 left-[35%] bottom-[2%]"></div>
           <div className='z-10 min-h-[50vh] w-3/4 flex flex-col justify-center items-center backdrop-blur  '>
             <div className='z-10 w-full p-5 border-4 rounded-2xl backdrop-blur boxfield'>
               <h1 className="pt-5 text-5xl font-extrabold text-center text-white ">Take a coffee & chat with me</h1>

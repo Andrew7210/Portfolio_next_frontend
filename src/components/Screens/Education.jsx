@@ -138,8 +138,8 @@ const Education = () => {
   
   
   return (
-    <div className='relative w-full h-screen snap-center'>
-      <FloatingCard delay={0} style={"right-60 top-[40%] md:top-[90%] md:right-10"} Lotti={certificate} text1={"Euclid Mathematics Contest"} text2={"Certificate of Distinction"}/>
+    <div className='relative w-full h-screen snap-center '>
+      <FloatingCard delay={0} style={"right-60 top-[40%] md:top-[80%] md:right-10"} Lotti={certificate} text1={"Euclid Mathematics Contest"} text2={"Certificate of Distinction"}/>
       <FloatingCard delay={0.2} style={"left-[7%] top-[15%] md:left-[20%] md:top-[10%]"} Lotti={medal} text1={"BDO New Venture Competition"} text2={"2021 Semi-finalist"}/>
       <FloatingCard delay={0.4} style={"left-[15%] bottom-[15%] md:left-[5%]"} Lotti={roger} text1={"Dean's Honour Roll"} text2={"Year 2020, 2021, 2022"}/>
       <RiveComponent className='absolute w-full -z-5 adjustheight' />

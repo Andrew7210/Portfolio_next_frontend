@@ -70,7 +70,7 @@ const WorkExperience = () => {
     }
   }
   return (
-    <div className='relative w-full h-screen'>
+    <div className='relative w-full h-screen '>
       <Lottie lottieRef={lottieRef} animationData={background} loop={true} className='absolute w-full h-full opacity-10' />
       <div className='flex flex-row items-center justify-center h-full md:flex-col'>
         {clicked &&
@@ -85,7 +85,7 @@ const WorkExperience = () => {
                 onClick={()=>{setClicked(false); setSelectId(-1);openImage()}}
               >
             </motion.div>
-            <motion.div layoutId={`workbox-${selectId}`}  className='w-[40%] ml-10 workBoxshow z-30 md:fixed md:w-[90%] md:ml-0' style={{"--clr":`${works[selectId].color.hex}`}} onClick={()=>{
+            <motion.div layoutId={`workbox-${selectId}`}  className='w-[40%] ml-10 workBoxshow z-30 md:fixed md:w-[90%] md:top-[20%] md:ml-0' style={{"--clr":`${works[selectId].color.hex}`}} onClick={()=>{
               setClicked(false)
               openImage()
               setSelectId(-1)

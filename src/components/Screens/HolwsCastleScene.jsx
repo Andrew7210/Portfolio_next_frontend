@@ -33,8 +33,8 @@ const HolwsCastleScene = () => {
   return (
     <div ref={ref} className='w-screen h-[400vh] bg-[#0497d1] relative flex flex-col'>
       <div className={`${show ? "": "hidden"} fixed`}>
-        <motion.div style={{opacity}} className='w-screen h-screen fixed top-[100%] -right-[100vw] z-30'>
-          <motion.div style={{x,y}}><HolwsCastle /></motion.div>
+        <motion.div style={{opacity}} className='w-screen h-screen fixed top-[100%] -right-[100vw] z-40'>
+          <motion.div style={{x,y}} className='z-50'><HolwsCastle /></motion.div>
           <motion.img style={{x: grass1X}} className='-bottom-1 fixed left-0 h-[400px] w-[800px] z-50 blur-[2px]' src='HolwsCastle/grass1.png' />
           <motion.img style={{x: grass2X}} className='-bottom-1 fixed right-0 h-[200px] w-[600px] z-50 blur-sm' src='HolwsCastle/grass2.png' />
           <motion.img style={{width: cloudX, height:cloudY, x:cloudleft}} className='bottom-0 blur-sm fixed left-0 h-[500px] w-[600px] z-40' src='HolwsCastle/cloud1.png' />
@@ -42,8 +42,21 @@ const HolwsCastleScene = () => {
         </motion.div>
       </div>
       <div className='h-screen'></div>
-      <div className='h-screen w-screen justify-center items-center z-[41]'>32112321321321321321321321312321</div>
-      <div className='h-screen w-screen justify-center items-center z-[41]'>32112321321321321321321321312321</div>
+      <div className='h-screen w-screen'>
+        <div className='flex flex-col justify-center pl-[10%]'>
+          <h2 className='text-3xl font-semibold text-white'>In addition to web design and programming, I am enthusiastic about  </h2>
+          <h2 className='text-7xl max-w-7xl font-extrabold text-[#811fce]'>Creating 3d models, game design and cutting-edge animations.</h2>
+          <h2 className='text-3xl font-bold text-white'>I try to utilize those in my career, education and web design</h2>
+        </div>
+      </div>
+      <div className='h-screen w-screen'>
+        <div className='flex flex-col justify-center pl-[10%]'>
+          <h2 className='text-3xl font-semibold text-white'>In my rest time, I love</h2>
+          <h2 className='text-7xl font-extrabold text-[#811fce] md:text-6xl '>Watching movies (especially Howl's Moving Castle) </h2>
+          <h2 className='text-7xl max-w-7xl font-extrabold text-[#811fce] md:text-6xl'>And playing video games (Warcraft)</h2>
+          <h2 className='text-3xl font-bold text-white'>I also enjoy delicacies, travelling and skiing</h2>
+        </div>
+      </div>
       <div className='h-screen'></div>
     </div>
   )

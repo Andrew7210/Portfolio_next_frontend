@@ -15,7 +15,7 @@ const Network = () => {
     hidden: {opacity:0},
     show:{
       opacity:1,
-      transition:{delayChildren: 1, staggerChildren: 0.2}
+      transition:{staggerChildren: 0.2}
     }
   }
   const move2 = {
