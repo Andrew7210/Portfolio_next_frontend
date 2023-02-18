@@ -35,9 +35,6 @@ const Learning = () => {
       setSkills(data);
     });
   }, [])
-  useEffect(() => {
-    console.log(skills)
-  }, [skills])
 
   return (
     <div className='relative w-full overflow-hidden h-screen flex flex-col'>

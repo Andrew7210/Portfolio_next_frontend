@@ -23,6 +23,7 @@
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "framer-motion": "^9.0.7",
+    "get-youtube-id": "^1.0.1",
     "howler": "^2.2.3",
     "lottie-react": "^2.4.0",
     "next": "13.1.6",
@@ -32,6 +33,7 @@
     "react-lorem-ipsum": "^1.4.10",
     "react-router-dom": "^6.8.1",
     "react-simple-typewriter": "^5.0.1",
+    "react-youtube": "^10.1.0",
     "sass": "^1.58.3",
     "styled-components": "^5.3.6",
     "typescript": "4.9.5"

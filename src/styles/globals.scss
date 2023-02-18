@@ -239,13 +239,11 @@ li {
 }
 
 .card-content-container.open {
-  top: 4rem;
   left: 0;
   right: 0;
   position: fixed;
   overflow-y:scroll;
   overflow-x:hidden;
-  padding: 40px 0;
   overscroll-behavior-y: contain;
 }
 
@@ -264,7 +262,6 @@ li {
   width: 70vw;
   overflow-x:hidden;
   overflow-y: scroll;
-  padding: 20px;
   @media (max-width: 990px) {
     width: 90vw;
   }
@@ -286,27 +283,10 @@ li {
   width: 100vw;
 }
 
-.title-container {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  max-width: 300px;
-}
-
-.open .title-container {
-  top: 30px;
-  left: 30px;
-}
 
 h2 {
   color: #fff;
   margin: 8px 0;
-}
-
-.category {
-  color: #fff;
-  font-size: 14px;
-  text-transform: uppercase;
 }
 
 .overlay {
@@ -330,9 +310,6 @@ h2 {
   transform: translateX(-50%);
 }
 
-.content-container {
-  padding: 460px 35px 35px 35px;
-}
 
 p {
   color: #9d9ca1;
@@ -754,13 +731,13 @@ p {
 
 
 .glowText {
-  animation: animate 16s ease-in-out infinite;
-  @keyframes animate {
-    0%,100%{
+  animation: glowtext 16s ease-in-out infinite;
+  @keyframes glowtext {
+    50%{
       color:#111617;
       text-shadow: none;
     }
-    50% {
+    0%,100% {
       color:#fd6228;
       text-shadow: 0 0 10px #ca4e1f, 0 0 20px #ca4e1f, 0 0 40px #ca4e1f,
     }

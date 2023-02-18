@@ -3,7 +3,10 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
 import { motion, AnimatePresence } from "framer-motion"
-
+import Lottie from "lottie-react";
+import linkedin from "public/lotti/linkedin.json";
+import github from "public/lotti/gitcat.json";
+import { urlFor, client } from '../lib/sanity.client.ts';
 const generateLink = (i) => {
   switch (i) {
     case 0: return '/';
@@ -12,36 +15,6 @@ const generateLink = (i) => {
     default: return '/';
   }
 };
-
-const MenuItems = ({ isMobile, active, setActive, setIsOpen, inputs}) => {
-  
-  return (
-    <ul className={`list-none flexCenter flex-row  ${isMobile && 'flex-col h-full'}`}>
-      {/* for the map i is the index */}
-      {['.about()', '.projects()', '.contact()'].map((item, i) => (
-        isMobile && (
-          <motion.li key={i}
-            onClick={() => {
-              setActive(item);
-              setIsOpen(false);
-              inputs.value = !inputs.value
-            }}
-            className={`flex flex-row w-[2.6] items-center font-poppins font-semibold text-gray-500 hover:text-white mx-3
-            ${active === item
-              ? 'text-white '
-              : 'text-nft-gray-3'}`}>
-            <Link className='text-3xl p-4' href={generateLink(i)}>{item}</Link>
-          </motion.li>
-        )
-        
-      ))}
-    </ul>
-  );
-};
-
-
-
-
 
 const checkActive = (active, setActive, router) => {
   switch (router.pathname) {
@@ -90,6 +63,46 @@ const Navbar = () => {
     stateMachines: "button",
     autoplay: true,
   }); 
+
+  const [links, setLinks] = useState([])
+  useEffect(() => {
+    const query  = "*[_type == 'link']"
+    client.fetch(query).then((data) => {
+      setLinks(data);
+    });
+  }, [])
+  
+  const MenuItems = ({}) => {
+  
+    return (
+      <ul className={`list-none flexCenter flex-col h-full relative`}>
+        {['.about()', '.projects()', '.contact()'].map((item, i) => (
+          <motion.li key={i}
+            onClick={() => {
+              setActive(item);
+              setIsOpen(false);
+              bumpInput.value = !bumpInput.value
+            }}
+            className={`flex flex-row w-[2.6] items-center font-poppins font-semibold text-gray-500 hover:text-white mx-3
+            ${active === item
+              ? 'text-white '
+              : 'text-nft-gray-3'}`}>
+            <Link className='p-4 text-3xl' href={generateLink(i)}>{item}</Link>
+          </motion.li>
+        ))}
+        <div className='absolute flex flex-col left-2 bottom-3'>
+          <motion.div whileHover={{scale:1.2}} className='flex items-center justify-center w-20 h-20 m-4 bg-white rounded-lg pointer-events-auto'>
+            <a href={links.length == 1 ? links[0].linkedin : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={linkedin} loop={true} onClick={()=>{}} className='w-16 h-16'/></a>
+          </motion.div>
+          <motion.div whileHover={{scale:1.1}} className='m-4 pointer-events-auto '>
+            <a href={links.length == 1 ? links[0].github : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={github} loop={true} onClick={()=>{}} className='w-20 h-20'/></a>
+          </motion.div>
+        </div >
+      </ul>
+    );
+  };
+
+
   return (
     /* for the nagivation bar */
     <nav className="fixed z-50 w-full h-20 bg-black bg-opacity-70 flexCenter md:justify-end ">
@@ -100,18 +113,25 @@ const Navbar = () => {
           </div>
         </div>
         {/* this is the div for the large screen  */}
-        <div className="flex flex-row justify-end flex-initial items-center">
+        <div className="flex flex-row items-center justify-end flex-initial">
           <div className="flex">
-            <motion.li className='h-20 w-40'>
-              <Link className='h-20 w-40 flex' href={generateLink(0)}><div className='h-20 w-44'><About /></div ></Link>
+            <motion.li className='w-40 h-20'>
+              <Link className='flex w-40 h-20' href={generateLink(0)}><div className='h-20 w-44'><About /></div ></Link>
             </motion.li>
-            <motion.li className='h-20 w-40'>
-              <Link className='h-20 w-40 flex' href={generateLink(1)}><div className='h-20 w-44'><Project /></div ></Link>
+            <motion.li className='w-40 h-20'>
+              <Link className='flex w-40 h-20' href={generateLink(1)}><div className='h-20 w-44'><Project /></div ></Link>
             </motion.li>
-            <motion.li  className='h-20 w-40'>
-              <Link className='h-20 w-40 flex' href={generateLink(2)}><div className='h-20 w-44'><Contact /></div ></Link>
+            <motion.li  className='w-40 h-20'>
+              <Link className='flex w-40 h-20' href={generateLink(2)}><div className='h-20 w-44'><Contact /></div ></Link>
             </motion.li>
           </div>
+          
+          <motion.div whileHover={{scale:1.2}} className='flex items-center justify-center w-12 h-12 m-4 bg-white rounded-lg pointer-events-auto'>
+            <a href={links.length == 1 ? links[0].linkedin : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={linkedin} loop={true} onClick={()=>{}} className='w-8 h-8'/></a>
+          </motion.div>
+          <motion.div whileHover={{scale:1.1}} className='m-4 pointer-events-auto '>
+            <a href={links.length == 1 ? links[0].github : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={github} loop={true} onClick={()=>{}} className='w-12 h-12'/></a>
+          </motion.div>
         </div>
 
       </div>
@@ -130,7 +150,7 @@ const Navbar = () => {
             className="fixed inset-0 z-10 flex flex-col justify-between bg-black top-65 nav-h">
               <div className={`flex-1 p-4 ${active}`}>
                 {/* isMobile默认为true */}
-                <MenuItems active={active} setActive={setActive} isMobile setIsOpen={setIsOpen} inputs={bumpInput} />
+                <MenuItems />
               </div>
             </motion.div>
           )}
