@@ -42,18 +42,18 @@ const HolwsCastleScene = () => {
         </motion.div>
       </div>
       <div className='h-screen'></div>
-      <div className='h-screen w-screen'>
+      <div className='w-screen h-screen'>
         <div className='flex flex-col justify-center pl-[10%]'>
-          <h2 className='text-3xl font-semibold text-white'>In addition to web design and programming, I am enthusiastic about  </h2>
-          <h2 className='text-7xl max-w-7xl font-extrabold text-[#811fce]'>Creating 3d models, game design and cutting-edge animations.</h2>
+          <h2 className='text-3xl font-semibold text-white'>In addition to web design and programming, I am enthusiastic about</h2>
+          <h2 className='text-7xl max-w-7xl font-extrabold text-[#811fce]'>Creating 3d models, game design and interactive animations</h2>
           <h2 className='text-3xl font-bold text-white'>I try to utilize those in my career, education and web design</h2>
         </div>
       </div>
-      <div className='h-screen w-screen'>
+      <div className='w-screen h-screen'>
         <div className='flex flex-col justify-center pl-[10%]'>
           <h2 className='text-3xl font-semibold text-white'>In my rest time, I love</h2>
           <h2 className='text-7xl font-extrabold text-[#811fce] md:text-6xl '>Watching movies (especially Howl's Moving Castle) </h2>
-          <h2 className='text-7xl max-w-7xl font-extrabold text-[#811fce] md:text-6xl'>And playing video games (Warcraft)</h2>
+          <h2 className='text-7xl max-w-7xl font-extrabold text-[#811fce] md:text-6xl'>And playing video games</h2>
           <h2 className='text-3xl font-bold text-white'>I also enjoy delicacies, travelling and skiing</h2>
         </div>
       </div>

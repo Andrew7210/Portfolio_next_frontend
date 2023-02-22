@@ -13,11 +13,11 @@ const Introduce = ({setloaded}) => {
   return (
     <div className='flex items-center w-full h-screen snap-center '>
       <div className='flex flex-col z-10 justify-center pl-[5vw] md:bottom-0 md:absolute md:text-center md:w-full md:pl-0'>
-        <motion.h2 className='max-w-5xl text-5xl font-bold text-gray-500 pb-8 md:text-start'
+        <motion.h2 className='max-w-5xl pb-8 text-5xl font-bold text-gray-500'
         initial={{y:300}} whileInView={{y:0}} transition={{duration:1}}
         >&lt;head&gt;</motion.h2>
         <motion.div variants={move} initial="hidden" whileInView="show" className='pl-[5vw] z-10 pointer-events-none md:pl-0' >
-          <motion.h1 className='max-w-5xl p-4 font-extrabold text-purple-700 text-6xl md:p-0 '
+          <motion.h1 className='max-w-5xl p-4 text-6xl font-extrabold text-purple-700 md:p-0 '
             variants={move} >Hello, it's Me</motion.h1>
           <motion.h1 className='max-w-5xl p-6 pl-16 font-extrabold text-white text-9xl md:p-0 md:text-8xl'
             variants={move} >Tianyi Zhan </motion.h1>
@@ -33,7 +33,7 @@ const Introduce = ({setloaded}) => {
           <motion.h2 className='max-w-5xl p-4 text-5xl font-extrabold text-purple-700'
           variants={move} >Also a university student</motion.h2>
         </motion.div>
-        <motion.h2 className='max-w-5xl text-5xl font-bold text-gray-500 pt-8 md:text-end'
+        <motion.h2 className='max-w-5xl pt-8 text-5xl font-bold text-gray-500 '
         initial={{y:-300}} whileInView={{y:0}} transition={{duration:1}}
         >&lt;/head&gt;</motion.h2>
       </div>

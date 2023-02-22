@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
 import {motion, AnimatePresence, useAnimationControls} from "framer-motion";
 import Lottie from "lottie-react";
-import { LoremIpsum } from "react-lorem-ipsum";
 import background from "public/lotti/workBackground.json"
 import { urlFor, client } from '../../lib/sanity.client.ts';
 import {PortableText} from "@portabletext/react";
@@ -66,7 +65,8 @@ const WorkExperience = () => {
       bullet: ({children}) => <li className="list-disc">{children}</li>
     },
     marks: {
-      strong: ({children}) => <strong className='text-white'>{children}</strong>,
+      strong: ({children}) => <span className='font-bold text-white'>{children}</span>,
+      code: ({children}) => <span className='p-1 font-bold text-white rounded-md bg-slate-500'>{children}</span>
     }
   }
   return (
@@ -94,7 +94,7 @@ const WorkExperience = () => {
               <div className='content max-h-[75vh] overflow-y-scroll'>
                 <div className='flex flex-row items-center'>
                   <motion.div className='icon' layoutId={`iconbox-${selectId}`}><img src={urlFor(works[selectId].image)} /></motion.div>
-                  <motion.div className='text pl-10' layoutId={`boxtext-${selectId}`}>
+                  <motion.div className='pl-10 text' layoutId={`boxtext-${selectId}`}>
                     <motion.h1 className='text-4xl' layoutId={`boxtitle-${selectId}`}>{"name" in works[selectId] ? `${works[selectId].title} (${works[selectId].name})` : `${works[selectId].title}`}</motion.h1>
                     <motion.p className='text-2xl font-bold' layoutId={`boxjob-${selectId}`}>{works[selectId].job}</motion.p>
                     <motion.div className='flex flex-row items-center gap-5' layoutId={`boxtime-${selectId}`}>
@@ -119,7 +119,7 @@ const WorkExperience = () => {
           <motion.h2 initial={{opacity:0, y:-100}} whileInView={{opacity:1, y:0, transition:{duration:1}}} className='w-full pb-10 text-6xl font-bold text-center text-white md:text-4xl'>Work Experience</motion.h2>
           <motion.div  className='flex flex-row flex-wrap items-center justify-center w-full grid-cols-2 gap-10 md:gap-6'>
             {works.map((work, index) => 
-              <motion.div layoutId={`workbox-${index}`} className='workBox w-[500px] h-[200px] md:w-[43vw] md:h-[15vh]' style={{"--clr":`${work.color.hex}`}} onHoverStart={()=>breakInput.value=false} onHoverEnd={()=>breakInput.value=true} onClick={()=>{
+              <motion.div layoutId={`workbox-${index}`} className='workBox w-[500px] h-[200px] md:w-[43vw] md:h-[15vh] cursor-pointer' style={{"--clr":`${work.color.hex}`}} onHoverStart={()=>breakInput.value=false} onHoverEnd={()=>breakInput.value=true} onClick={()=>{
               setClicked(true)
               closeImage()
               setSelectId(index)
