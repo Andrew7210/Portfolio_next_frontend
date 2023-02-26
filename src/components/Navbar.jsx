@@ -73,23 +73,17 @@ const Navbar = () => {
   }, [])
   
   const MenuItems = ({}) => {
-  
+    const colors = ["#00ade1", "#ff6493", "#dc00d4"]
     return (
-      <ul className={`list-none flexCenter flex-col h-full relative`}>
-        {['.about()', '.projects()', '.contact()'].map((item, i) => (
-          <motion.li key={i}
-            onClick={() => {
-              setActive(item);
-              setIsOpen(false);
-              bumpInput.value = !bumpInput.value
-            }}
-            className={`flex flex-row w-[2.6] items-center font-poppins font-semibold text-gray-500 hover:text-white mx-3
-            ${active === item
-              ? 'text-white '
-              : 'text-nft-gray-3'}`}>
-            <Link className='p-4 text-3xl' href={generateLink(i)}>{item}</Link>
-          </motion.li>
-        ))}
+      <div className='w-full h-full'>
+        <ul className={`list-none justify-center flex flex-col h-full relative navStyle left-[20%]`}>
+          {['.about()', '.projects()', '.contact()'].map((item, i) => (
+            <motion.li key={i} style={{'--colour': colors[i], cursor:'pointer'}} onClick={() => {setActive(item);setIsOpen(false);bumpInput.value = !bumpInput.value}}
+              className="relative">
+              <a href={generateLink(i)} data-text="&nbsp;" data-text2={item}>&nbsp;{item}&nbsp;</a>
+            </motion.li>
+          ))}
+        </ul>
         <div className='absolute flex flex-col left-2 bottom-3'>
           <motion.div whileHover={{scale:1.2}} className='flex items-center justify-center w-20 h-20 m-4 bg-white rounded-lg pointer-events-auto'>
             <a href={links.length == 1 ? links[0].linkedin : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={linkedin} loop={true} onClick={()=>{}} className='w-16 h-16'/></a>
@@ -98,7 +92,7 @@ const Navbar = () => {
             <a href={links.length == 1 ? links[0].github : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={github} loop={true} onClick={()=>{}} className='w-20 h-20'/></a>
           </motion.div>
         </div >
-      </ul>
+      </div>
     );
   };
 
@@ -136,8 +130,8 @@ const Navbar = () => {
 
       </div>
       {/* right side manu for the mobile device */}
-      <div className="items-center hidden h-20 pr-3 ml-3 cursor-pointer md:flex">
-        <RiveComponent style={{width: 50}} onClick={()=>{
+      <div className="items-center hidden h-20 pr-3 ml-3 md:flex">
+        <RiveComponent style={{width: 50, cursor:'pointer'}} onClick={()=>{
           setIsOpen((preState) => !preState)
           bumpInput.value=!bumpInput.value
           }} />

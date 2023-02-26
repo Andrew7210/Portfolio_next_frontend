@@ -23,10 +23,10 @@ function Card({ project, id, setselected, setselectid }) {
       <div className="cursor-pointer card-content-container">
         <motion.div className="bg-gray-700 card-content" layoutId={`card-container-${id}`} whileHover={{scale:1.1, boxShadow: `0 0 50px ${project.color.hex}`}} >
           <motion.div
-            className="card-image-container"
+            className="flex items-center justify-center card-image-container"
             layoutId={`card-image-container-${id}`}
           >
-            <img className="object-cover w-auto h-full card-image" src={urlFor(project.image)} alt="" />
+            <img className="object-cover w-auto h-full" src={urlFor(project.image)} alt="" />
           </motion.div>
           <motion.div className="absolute w-full h-full left-4 top-4" layoutId={`title-container-${id}`}>
             <span className="text-4xl font-bold text-white">{project.title}</span>
@@ -85,8 +85,8 @@ function Item({ id,project, setselected, setselectid }) {
                 (<motion.div whileHover={{scale:1.1}} className='flex items-center justify-center w-16 h-16 m-4 text-5xl text-white pointer-events-auto'>
                   <a href={project.website} target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                 </motion.div>)}
-                <motion.div whileHover={{scale:1.1}} className='w-16 h-16 m-4 pointer-events-auto'>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer"><Lottie animationData={github} loop={true} className='w-16 h-16'/></a>
+                <motion.div whileHover={{scale:1.1}} className='flex items-center justify-center w-16 h-16 m-4 text-6xl text-white pointer-events-auto'>
+                  <a href={project.github} target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-github"></i></a>
                 </motion.div>
               </div>
             </motion.div>
