@@ -7,6 +7,7 @@ import '../styles/SceneSection.scss'
 import Navbar from '../components/Navbar'
 import { Crimson_Pro } from '@next/font/google';
 import { motion, AnimatePresence } from "framer-motion"
+import { Analytics } from '@vercel/analytics/react';
 
 const crimsonPro = Crimson_Pro({subsets: ['latin']})
 
@@ -17,6 +18,7 @@ const App = ({ Component, pageProps }: AppProps) => (
         <Navbar />
         <motion.div className="flex w-screen pt-20 overflow-hidden">
           <Component {...pageProps} />
+          <Analytics />
         </motion.div>
       </motion.div>
       <Script src="https://kit.fontawesome.com/b32c0febbc.js" crossOrigin="anonymous" />
