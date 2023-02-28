@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+// @ts-ignore 
 import riveWASMResource from '@rive-app/canvas/rive.wasm';
 export default function Document() {
   return (

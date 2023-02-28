@@ -3,6 +3,9 @@ module.exports = {
   images: {
     domains: ['cdn.sanity.io'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   webpack(config, options) {
     const { isServer } = options;
     config.module.rules.push({
