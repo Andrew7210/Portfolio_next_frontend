@@ -89,12 +89,14 @@ function Item({ id,project, setselected, setselectid }) {
                   <a href={project.github} target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-github"></i></a>
                 </motion.div>
               </div>
+              <h3 className="py-4 text-2xl font-bold text-gray-500 md:text-xl">*If the website is not working due to hosting plan change, please check youtube video for project demonstration</h3>
             </motion.div>
           </div>
           <motion.div className="flex flex-row w-full h-full p-5 content-container md:flex-col" animate>
             <div className='flex flex-col w-1/2 md:w-full' >
               <h3 className='py-5 text-5xl font-bold text-white md:text-4xl'>Project demonstration (Youtube):</h3>
               <div className='w-full aspect-video'><YouTube videoId={getYouTubeID(project.youtube)} opts={opts} className='w-full h-full' /></div>
+              <h3 className='py-3 text-2xl font-bold text-gray-500 md:text-xl'>*If the video not showing, be patient and check you network</h3>
             </div>
             <div className='flex flex-1 pt-10 pl-[5%] flex-col md:pl-0'>
               <h3 className='pb-5 text-5xl font-bold text-white md:text-4xl'>Project details:</h3>

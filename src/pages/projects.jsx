@@ -56,7 +56,7 @@ const Projects = () => {
             <h2 className='max-w-2xl p-4 text-4xl font-bold text-white md:py-1'>The best way to predict the future is to learn and create it.</h2>
             
             <div className='flex flex-row mt-6'>
-              {/* <a href={links.length == 1 ? links[0].resume : ""} target="_blank" rel="noopener noreferrer"><RiveComponent className="mr-32 relative -top-56 w-[300px] h-[400px] pointer-events-auto md:mr-0" /></a> */}
+              <a href={links.length == 1 ? links[0].resume : ""} target="_blank" rel="noopener noreferrer"><RiveComponent className="mr-32 relative -top-56 w-[300px] h-[400px] pointer-events-auto md:mr-0" /></a>
               <motion.div whileHover={{scale:1.2}} className='flex items-center justify-center w-20 h-20 m-4 bg-white rounded-lg pointer-events-auto'>
                 <a href={links.length == 1 ? links[0].linkedin : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={linkedin} loop={true} onClick={()=>{}} className='w-16 h-16'/></a>
               </motion.div>
