@@ -29,9 +29,11 @@ const index = () => {
         <AnimatePresence>
           {showScreen && (
             <motion.div className={`fixed flex flex-col top-0 items-center w-screen h-screen bg-[#140e20] z-30`} exit={{rotateX:90, y:"-50vh", transition:{duration:1}}}>
-              <RiveComponent className='w-full h-1/2 top-20 relative' />
+              <RiveComponent className='relative w-full h-1/2 top-20' />
+              <h2 className='relative z-20 text-2xl font-bold text-gray-500 top-20'>Important Note: For MacOS and IOS users, please press ⌘ and - zoom out to 50% for best experience</h2>
+              <h2 className='relative z-20 text-2xl font-bold text-gray-500 top-20'>If stuck or get any error, check youtube video in the section of selected project in .project()</h2>
               { !loaded ?
-                <div className="scale-150 homeloader top-1/2">
+                <div className="scale-150 homeloader top-40">
                   <span>Loading</span>
                   <span>Loading</span>
                 </div>

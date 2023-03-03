@@ -11,7 +11,7 @@ const Introduce = ({setloaded}) => {
     }
   }
   return (
-    <div className='flex items-center w-full h-screen snap-center '>
+    <div className='flex items-center w-full h-screen snap-center h-screen-ios'>
       <div className='flex flex-col z-10 justify-center pl-[5vw] md:bottom-0 md:absolute md:text-center md:w-full md:pl-0'>
         <motion.h2 className='max-w-5xl pb-8 text-5xl font-bold text-gray-500'
         initial={{y:300}} whileInView={{y:0}} transition={{duration:1}}
