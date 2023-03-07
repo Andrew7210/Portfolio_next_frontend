@@ -50,18 +50,18 @@ const Projects = () => {
           <div className='absolute bottom-0 right-0 w-full h-full m-0 '><Spline scene="https://prod.spline.design/HJXKk3Al5odruWDq/scene.splinecode" onLoad={()=>setTimeout(() => {
             setShowScreen(false)
           }, 1000)}/></div>
-          <div className='flex flex-col justify-center pl-[10vw] z-10 pointer-events-none md:justify-start'>
-            <h2 className='p-4 text-2xl font-bold text-purple-600 md:py-1'>What was impossible, Technology makes possible</h2>
-            <h1 className='max-w-5xl p-6 font-extrabold text-white text-8xl md:text-6xl md:py-2'>Time to check the power of knowledge </h1>
-            <h2 className='max-w-2xl p-4 text-4xl font-bold text-white md:py-1'>The best way to predict the future is to learn and create it.</h2>
+          <div className='flex flex-col justify-center pl-[5vw] z-10 pointer-events-none md:justify-start'>
+            <h2 className='p-2 text-2xl font-bold text-purple-600 md:py-1'>What was impossible, Technology makes possible</h2>
+            <h1 className='max-w-3xl p-3 text-6xl font-extrabold text-white md:text-6xl md:py-2'>Time to check the power of knowledge </h1>
+            <h2 className='max-w-xl p-2 text-2xl font-bold text-white md:py-1'>The best way to predict the future is to learn and create it.</h2>
             
             <div className='flex flex-row mt-6'>
-              <a href={links.length == 1 ? links[0].resume : ""} target="_blank" rel="noopener noreferrer"><RiveComponent className="mr-32 relative -top-56 w-[300px] h-[400px] pointer-events-auto md:mr-0" /></a>
-              <motion.div whileHover={{scale:1.2}} className='flex items-center justify-center w-20 h-20 m-4 bg-white rounded-lg pointer-events-auto'>
-                <a href={links.length == 1 ? links[0].linkedin : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={linkedin} loop={true} onClick={()=>{}} className='w-16 h-16'/></a>
+              <a href={links.length == 1 ? links[0].resume : ""} target="_blank" rel="noopener noreferrer" ><RiveComponent className="mr-12 relative w-[200px] h-[300px] -top-40 pointer-events-auto md:mr-0" /></a>
+              <motion.div whileHover={{scale:1.2}} className='flex items-center justify-center w-16 h-16 m-4 bg-white rounded-lg pointer-events-auto'>
+                <a href={links.length == 1 ? links[0].linkedin : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={linkedin} loop={true} onClick={()=>{}} className='w-12 h-12'/></a>
               </motion.div>
               <motion.div whileHover={{scale:1.1}} className='m-4 pointer-events-auto '>
-                <a href={links.length == 1 ? links[0].github : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={github} loop={true} onClick={()=>{}} className='w-20 h-20'/></a>
+                <a href={links.length == 1 ? links[0].github : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={github} loop={true} onClick={()=>{}} className='w-16 h-16'/></a>
               </motion.div>
             </div>
           </div>

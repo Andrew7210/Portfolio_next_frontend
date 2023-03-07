@@ -120,64 +120,64 @@ const Contact = () => {
         )}
       </AnimatePresence> 
       <div className='flex flex-row w-full adjustheight md:h-[200vh] md:flex-col md:w-[95%]'>
-        <div className='h-[92vh] w-6/12 m-5 z-10 md:w-full'>
+        <div className='h-[90vh] w-6/12 m-5 z-10 md:w-full'>
           <Spline className='overflow-auto rounded-3xl' scene="https://prod.spline.design/P22vGZm61zvNmypS/scene.splinecode" onLoad={()=>setTimeout(() => {
             setShowScreen(false)
           }, 500)}/>
-          <div className="absolute bottom-5 left-5">
-            <div className='p-3 text-3xl font-bold text-white '>Keyboard Key &</div>
-            <div className='p-3 text-3xl font-bold text-white '>Interact with items in the scene</div>
-            <img src='Key.svg'></img>
+          <div className="absolute bottom-0 left-5">
+            <div className='p-1 text-xl font-bold text-white '>Keyboard Key &</div>
+            <div className='p-1 text-xl font-bold text-white '>Interact with items in the scene</div>
+            <div className='w-[200px] h-[150px]'><img src='Key.svg'></img></div>
           </div>
         </div>
         <div className='relative flex items-center justify-center w-6/12 m-5 adjustheight md:w-full'>
           <div className='absolute top-0 left-0 w-full adjustheight blur-2xl' >
             <RiveComponent />
           </div>
-            <motion.div variants={move} custom={1} animate="show" className="z-20 littlebox w-36 h-36 opacity-80 right-[3%] md:right-0 top-[15%]"></motion.div>
-            <motion.div variants={move} custom={2} animate="show" className="z-20 w-40 h-40 littlebox left-[0%] bottom-[30%]"></motion.div>
-            <motion.div variants={move} custom={3} animate="show" className="w-20 h-20 littlebox opacity-60 right-[17%] bottom-[7%] md:bottom-5"></motion.div>
-            <motion.div variants={move} custom={4} animate="show" className="z-0 w-36 h-36 littlebox left-[30%] top-[6%] md:top-0"></motion.div>
-            <motion.div variants={move} custom={5} animate="show" className="littlebox w-28 h-28 right-[4%] bottom-[40%]"></motion.div>
-            <motion.div variants={move} custom={6} animate="show" className="z-0 littlebox w-28 h-28 left-[35%] bottom-[2%]"></motion.div>
-          <div className='z-10 min-h-[50vh] w-3/4 flex flex-col justify-center items-center backdrop-blur  '>
+            <motion.div variants={move} custom={1} animate="show" className="z-20 littlebox w-28 h-28 opacity-80 right-[3%] md:right-0 top-[15%]"></motion.div>
+            <motion.div variants={move} custom={2} animate="show" className="z-20 w-32 h-32 littlebox left-[0%] bottom-[30%]"></motion.div>
+            <motion.div variants={move} custom={3} animate="show" className="w-12 h-12 littlebox opacity-60 right-[17%] bottom-[7%] md:bottom-5"></motion.div>
+            <motion.div variants={move} custom={4} animate="show" className="z-0 w-28 h-28 littlebox left-[30%] top-[6%] md:top-0"></motion.div>
+            <motion.div variants={move} custom={5} animate="show" className="littlebox w-20 h-20 right-[4%] bottom-[40%]"></motion.div>
+            <motion.div variants={move} custom={6} animate="show" className="z-0 littlebox w-20 h-20 left-[35%] bottom-[2%]"></motion.div>
+          <div className='z-10 min-h-[50vh] flex flex-col justify-center items-center backdrop-blur  '>
             <div className='relative z-10 w-full p-5 border-4 rounded-2xl backdrop-blur boxfield'>
               <div className={`absolute w-full h-full z-10 ${loading ? "flex" : "hidden"} justify-center items-center`}><Check className='w-[200px] h-[200px]' /></div>
               <div className={`absolute w-full h-full z-10 ${successful ? "flex" : "hidden"} justify-center items-center`}><Celebrate className='w-[280px] h-[280px] scale-150' /></div>
-              <h1 className="pt-5 text-5xl font-extrabold text-center text-white ">Take a coffee & chat with me</h1>
-              <div className="flex flex-row py-5 app__footer-cards">
-                <div className="border-2 border-gray-400 border-opacity-50 shadow-md app__footer-card backdrop-blur-3xl">
-                  <Lottie animationData={emailIcon} loop={true} className='w-20 h-20'/>
-                  <a href="mailto:tianyi.zhan@outlook.com" className="text-2xl font-bold text-white">tianyi.zhan@outlook.com</a>
+              <h1 className="pt-5 text-3xl font-extrabold text-center text-white ">Take a coffee & chat with me</h1>
+              <div className="flex flex-row items-center gap-3 py-5 app__footer-cards">
+                <div className="px-2 border-2 border-gray-400 border-opacity-50 shadow-md app__footer-card backdrop-blur-3xl">
+                  <Lottie animationData={emailIcon} loop={true} className='w-16 h-16'/>
+                  <a href="mailto:tianyi.zhan@outlook.com" className="text-base font-bold text-white">tianyi.zhan@outlook.com</a>
                 </div>
-                <div className="border-2 border-gray-400 border-opacity-50 shadow-md app__footer-card backdrop-blur">
-                  <Lottie animationData={phoneIcon} loop={true} className='w-24 h-20'/>
-                  <a href="tel:+1(226)220-0555" className="text-2xl font-bold text-white">+1 (226) 220-0555</a>
+                <div className="px-2 border-2 border-gray-400 border-opacity-50 shadow-md app__footer-card backdrop-blur">
+                  <Lottie animationData={phoneIcon} loop={true} className='w-16 h-16'/>
+                  <a href="tel:+1(226)220-0555" className="text-base font-bold text-white">+1 (226) 220-0555</a>
                 </div>
               </div>
               
               {!isFormSubmitted ? (
                 <div className="flex flex-col items-center justify-center">
                   <div className='flex flex-row items-center justify-center w-full h-10 pb-2'>
-                    <h1 className="text-2xl font-extrabold text-white">Rate your experience: </h1>
+                    <h1 className="text-xl font-extrabold text-white">Rate your experience: </h1>
                     <div className='w-[250px] h-[100px] pl-2'><Rating /></div>
                   </div>
                   <div className='flex items-center justify-center w-full py-3'>
-                    <input className="w-10/12 px-4 py-4 text-xl font-extrabold text-white bg-white border-2 border-none outline-none bg-opacity-20 rounded-2xl" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} />
+                    <input className="w-10/12 px-4 py-2 text-base font-bold text-white bg-white border-2 border-none outline-none bg-opacity-20 rounded-2xl" type="text" placeholder="Your Name" name="username" value={username} onChange={handleChangeInput} />
                   </div>
                   <div className="flex items-center justify-center w-full py-3">
-                    <input className="w-10/12 px-4 py-4 text-xl font-extrabold text-white bg-white border-2 border-none outline-none bg-opacity-20 rounded-2xl" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />
+                    <input className="w-10/12 px-4 py-2 text-base font-bold text-white bg-white border-2 border-none outline-none bg-opacity-20 rounded-2xl" type="email" placeholder="Your Email" name="email" value={email} onChange={handleChangeInput} />
                   </div>
                   <div className="flex items-center justify-center w-full py-3">
                     <textarea
-                      className="w-10/12 px-4 py-4 text-xl font-extrabold text-white bg-white border-2 border-none outline-none bg-opacity-20 rounded-2xl"
+                      className="w-10/12 px-4 py-2 text-base font-bold text-white bg-white border-2 border-none outline-none bg-opacity-20 rounded-2xl"
                       placeholder="Your Message"
                       value={message}
                       name="message"
                       onChange={handleChangeInput}
                     />
                   </div>
-                  <ButtonSubmit className='h-[250px] w-full' onClick={handleSubmit} />
+                  <ButtonSubmit className='h-[170px] w-[300px] cursor-pointer' onClick={handleSubmit} />
                 </div>
               ) : 
                 successful ? (

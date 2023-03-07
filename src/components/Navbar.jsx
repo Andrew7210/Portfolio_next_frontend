@@ -76,7 +76,7 @@ const Navbar = () => {
     const colors = ["#00ade1", "#ff6493", "#dc00d4"]
     return (
       <div className='w-full h-full'>
-        <ul className={`list-none justify-center flex flex-col h-full relative navStyle left-[20%]`}>
+        <ul className={`list-none justify-center flex flex-col h-full relative navStyle left-[25%]`}>
           {['.about()', '.projects()', '.contact()'].map((item, i) => (
             <motion.li key={i} style={{'--colour': colors[i], cursor:'pointer'}} onClick={() => {setActive(item);setIsOpen(false);bumpInput.value = !bumpInput.value}}
               className="relative">
@@ -85,11 +85,11 @@ const Navbar = () => {
           ))}
         </ul>
         <div className='absolute flex flex-col left-2 bottom-3'>
-          <motion.div whileHover={{scale:1.2}} className='flex items-center justify-center w-20 h-20 m-4 bg-white rounded-lg pointer-events-auto'>
-            <a href={links.length == 1 ? links[0].linkedin : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={linkedin} loop={true} onClick={()=>{}} className='w-16 h-16'/></a>
+          <motion.div whileHover={{scale:1.2}} className='flex items-center justify-center w-16 h-16 m-4 bg-white rounded-lg pointer-events-auto'>
+            <a href={links.length == 1 ? links[0].linkedin : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={linkedin} loop={true} onClick={()=>{}} className='w-12 h-12'/></a>
           </motion.div>
           <motion.div whileHover={{scale:1.1}} className='m-4 pointer-events-auto '>
-            <a href={links.length == 1 ? links[0].github : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={github} loop={true} onClick={()=>{}} className='w-20 h-20'/></a>
+            <a href={links.length == 1 ? links[0].github : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={github} loop={true} onClick={()=>{}} className='w-16 h-16'/></a>
           </motion.div>
         </div >
       </div>
@@ -99,32 +99,32 @@ const Navbar = () => {
 
   return (
     /* for the nagivation bar */
-    <nav className="fixed z-50 w-full h-20 bg-black bg-opacity-70 flexCenter md:justify-end ">
+    <nav className="fixed z-50 w-full h-12 bg-black bg-opacity-70 flexCenter md:justify-end ">
       <div className='flex flex-row w-2/3 md:hidden flexBetween'>
         <div className="flex flex-row justify-start flex-1">
           <div className="flexCenter ">
-            <p className="ml-1 text-4xl font-bold text-purple-700">{active}</p>
+            <p className="ml-1 text-2xl font-bold text-purple-700">{active}</p>
           </div>
         </div>
         {/* this is the div for the large screen  */}
         <div className="flex flex-row items-center justify-end flex-initial">
           <div className="flex">
-            <motion.li className='w-40 h-20'>
-              <Link className='flex w-40 h-20' href={generateLink(0)}><div className='h-20 w-44'><About /></div ></Link>
+            <motion.li className='w-24 h-12'>
+              <Link className='flex w-24 h-12' href={generateLink(0)}><div className='w-24 h-12'><About /></div ></Link>
             </motion.li>
-            <motion.li className='w-40 h-20'>
-              <Link className='flex w-40 h-20' href={generateLink(1)}><div className='h-20 w-44'><Project /></div ></Link>
+            <motion.li className='w-24 h-12'>
+              <Link className='flex w-24 h-12' href={generateLink(1)}><div className='w-24 h-12'><Project /></div ></Link>
             </motion.li>
-            <motion.li  className='w-40 h-20'>
-              <Link className='flex w-40 h-20' href={generateLink(2)}><div className='h-20 w-44'><Contact /></div ></Link>
+            <motion.li  className='w-24 h-12'>
+              <Link className='flex w-24 h-12' href={generateLink(2)}><div className='w-24 h-12'><Contact /></div ></Link>
             </motion.li>
           </div>
           
-          <motion.div whileHover={{scale:1.2}} className='flex items-center justify-center w-12 h-12 m-4 bg-white rounded-lg pointer-events-auto'>
-            <a href={links.length == 1 ? links[0].linkedin : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={linkedin} loop={true} onClick={()=>{}} className='w-8 h-8'/></a>
+          <motion.div whileHover={{scale:1.2}} className='flex items-center justify-center w-8 h-8 m-4 bg-white rounded-lg pointer-events-auto'>
+            <a href={links.length == 1 ? links[0].linkedin : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={linkedin} loop={true} onClick={()=>{}} className='w-6 h-6'/></a>
           </motion.div>
           <motion.div whileHover={{scale:1.1}} className='m-4 pointer-events-auto '>
-            <a href={links.length == 1 ? links[0].github : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={github} loop={true} onClick={()=>{}} className='w-12 h-12'/></a>
+            <a href={links.length == 1 ? links[0].github : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={github} loop={true} onClick={()=>{}} className='w-8 h-8'/></a>
           </motion.div>
         </div>
 

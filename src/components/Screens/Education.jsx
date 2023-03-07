@@ -21,12 +21,12 @@ function Item({ id, setselected, setselectid, csCourses=[],mathCourses=[],buCour
         onClick={()=>{setselected(false); setselectid("")}}
       >
       </motion.div>
-      <div className="z-30 card-content-container open">
+      <div className="z-30 card-content-container open ">
         <motion.div className={`card-content bg-opacity-20 backdrop-blur-xl ${id==="waterloo"? "bg-orange-300" : "bg-purple-500"}`} layoutId={`card-container-${id}`}>
           <div className='absolute top-0 right-0 flex items-center justify-center w-20 h-20 text-5xl text-white cursor-pointer' onClick={()=>{setselected(false); setselectid("")}}><i class="fa-solid fa-xmark" ></i></div>
           <div className='flex flex-row items-center'>
             <motion.div
-              className="w-[200px] h-[200px] rounded-full overflow-hidden flex flex-row items-center"
+              className="w-[150px] h-[150px] rounded-full overflow-hidden flex flex-row items-center"
               layoutId={`card-image-container-${id}`}
             >
               <img className="card-image" src={`${id}.png`} alt={`${id}`}  />
@@ -35,50 +35,50 @@ function Item({ id, setselected, setselectid, csCourses=[],mathCourses=[],buCour
               className="pl-8"
               layoutId={`title-container-${id} `}
             >
-              <h2 className='text-5xl font-bold text-white'>{id==="waterloo"? "University of Waterloo" : "Wilfrid Laurier University"}</h2>
-              <h2 className='text-3xl font-bold text-white'>{id==="waterloo"? "Bachelor of Computer Science" : "Bachelor of Business Administration"}</h2>
+              <h2 className='text-4xl font-bold text-white'>{id==="waterloo"? "University of Waterloo" : "Wilfrid Laurier University"}</h2>
+              <h2 className='text-2xl font-bold text-white'>{id==="waterloo"? "Bachelor of Computer Science" : "Bachelor of Business Administration"}</h2>
               { id==="waterloo" &&
                 <div>
-                  <h3 className='text-2xl font-semibold text-gray-400'>Artificial Intelligence Specialization</h3>
-                  <h3 className='text-2xl font-semibold text-gray-400'>Computational Mathematics Minor</h3>
+                  <h3 className='text-xl font-semibold text-gray-400'>Artificial Intelligence Specialization</h3>
+                  <h3 className='text-xl font-semibold text-gray-400'>Computational Mathematics Minor</h3>
                 </div>
               }
             </motion.div>
           </div>
           {id==="waterloo" ? 
             <motion.div className="flex flex-col " >
-              <h2 className='text-3xl font-bold text-white'>Computer Science Courses:</h2>
+              <h2 className='text-2xl font-bold text-white'>Computer Science Courses:</h2>
               <div className='flex flex-row flex-wrap gap-5'>
                 {csCourses.map((course, index) => 
-                  <motion.a className='p-4 backdrop-blur-md rounded-xl' href={course.url}  whileHover={{scale:1.1}} target="_blank" rel="noopener noreferrer">
-                    <h3 className='text-2xl font-bold text-white'>{course.title}</h3>
-                    <h3 className='text-lg font-bold text-white'>{course.description}</h3>
+                  <motion.a className='p-2 backdrop-blur-md rounded-xl' href={course.url}  whileHover={{scale:1.1}} target="_blank" rel="noopener noreferrer">
+                    <h3 className='text-xl font-bold text-white'>{course.title}</h3>
+                    <h3 className='text-base font-bold text-white'>{course.description}</h3>
                   </motion.a>
                 )}
               </div>
-              <h2 className='text-3xl font-bold text-white'>Mathematics Courses:</h2>
+              <h2 className='text-2xl font-bold text-white'>Mathematics Courses:</h2>
               <div className='flex flex-row flex-wrap gap-5'>
                 {mathCourses.map((course, index) => 
-                  <motion.a className='p-4 backdrop-blur-md rounded-xl' href={course.url}  whileHover={{scale:1.1}} target="_blank" rel="noopener noreferrer">
-                    <h3 className='text-2xl font-bold text-white'>{course.title}</h3>
-                    <h3 className='text-lg font-bold text-white'>{course.description}</h3>
+                  <motion.a className='p-2 backdrop-blur-md rounded-xl' href={course.url}  whileHover={{scale:1.1}} target="_blank" rel="noopener noreferrer">
+                    <h3 className='text-xl font-bold text-white'>{course.title}</h3>
+                    <h3 className='text-base font-bold text-white'>{course.description}</h3>
                   </motion.a>
                 )}
               </div>
-              <h2 className='pt-10 text-2xl font-bold text-gray-500 '>* Click the block to see the course description</h2>
+              <h2 className='pt-10 text-base font-bold text-gray-500 '>* Click the block to see the course description</h2>
             </motion.div>
           :
             <motion.div className="flex flex-col " >
-              <h2 className='text-3xl font-bold text-white'>Business Courses:</h2>
+              <h2 className='text-2xl font-bold text-white'>Business Courses:</h2>
               <div className='flex flex-row flex-wrap gap-5'>
                 {buCourses.map((course, index) => 
-                  <motion.a className='p-4 backdrop-blur-md rounded-xl' href={course.url}  whileHover={{scale:1.1}} target="_blank" rel="noopener noreferrer">
-                    <h3 className='text-2xl font-bold text-white'>{course.title}</h3>
-                    <h3 className='text-lg font-bold text-white'>{course.description}</h3>
+                  <motion.a className='p-2 backdrop-blur-md rounded-xl' href={course.url}  whileHover={{scale:1.1}} target="_blank" rel="noopener noreferrer">
+                    <h3 className='text-xl font-bold text-white'>{course.title}</h3>
+                    <h3 className='text-base font-bold text-white'>{course.description}</h3>
                   </motion.a>
                 )}
               </div>
-              <h2 className='pt-10 text-2xl font-bold text-gray-500 '>* Click the block to see the course description</h2>
+              <h2 className='pt-10 text-base font-bold text-gray-500 '>* Click the block to see the course description</h2>
             </motion.div>
           }
         </motion.div>
@@ -89,13 +89,13 @@ function Item({ id, setselected, setselectid, csCourses=[],mathCourses=[],buCour
 
 const FloatingCard = ({style, Lotti, text1, text2, delay}) => (
   <motion.div className={`absolute gradientshadow  ${style}`}
-  initial={{ opacity: 0, y:100 }} whileInView={{ opacity: 1, y:0, transition: { delay:delay,duration:1 } }} 
+  initial={{ opacity: 0, x:100 }} whileInView={{ opacity: 1, x:0, transition: { delay:delay,duration:1 } }} 
   >
     <div className='flex flex-row items-center justify-center rounded-2xl'>
-        <Lottie animationData={Lotti} loop={true} className='w-28 h-28'/>
+        <Lottie animationData={Lotti} loop={true} className='w-20 h-20'/>
         <div className="flex flex-col items-center justify-center p-4 ">
-          <h1 className='text-2xl font-bold text-white'>{text1}</h1>
-          <h1 className='text-2xl font-bold text-white'>{text2}</h1>
+          <h1 className='text-xl font-bold text-white'>{text1}</h1>
+          <h1 className='text-xl font-bold text-white'>{text2}</h1>
           <div className=''></div>
         </div>
     </div>
@@ -139,40 +139,40 @@ const Education = () => {
   
   return (
     <div className='relative w-full h-screen snap-center h-screen-ios lg'>
-      <FloatingCard delay={0} style={"right-60 top-[40%] md:top-[80%] md:right-10 "} Lotti={certificate} text1={"Euclid Mathematics Contest"} text2={"Certificate of Distinction"}/>
-      <FloatingCard delay={0.2} style={"left-[7%] top-[15%] md:left-[20%] md:top-[10%]"} Lotti={medal} text1={"BDO New Venture Competition"} text2={"2021 Semi-finalist"}/>
-      <FloatingCard delay={0.4} style={"left-[15%] bottom-[15%] md:left-[5%]"} Lotti={roger} text1={"Dean's Honour Roll"} text2={"Year 2020, 2021, 2022"}/>
+      <FloatingCard delay={0} style={"right-20 top-[40%] md:top-[13%] md:right-4 "} Lotti={certificate} text1={"Euclid Mathematics Contest"} text2={"Certificate of Distinction"}/>
+      <FloatingCard delay={0.2} style={"left-[7%] top-[5%] md:left-[20%] md:top-0 md:left-[5%]"} Lotti={medal} text1={"BDO New Venture Competition"} text2={"2021 Semi-finalist"}/>
+      <FloatingCard delay={0.4} style={"left-[10%] bottom-[15%] md:left-[30%] md:bottom-0"} Lotti={roger} text1={"Dean's Honour Roll"} text2={"Year 2020, 2021, 2022"}/>
       <RiveComponent className='absolute w-full -z-5 adjustheight' />
       <Scan className='absolute w-full adjustheight' />
       <div className='relative z-20 flex flex-col items-center justify-center w-full h-full'>
-        <motion.h2 className='pb-20 text-6xl font-bold text-white '
+        <motion.h2 className='pb-20 text-5xl font-bold text-white md:pb-5'
           initial={{ opacity: 0 }} whileInView={{ opacity: 1, transition: { duration:1 } }}
         >My Education and Achievement</motion.h2>
         <div className='flex flex-col items-center justify-center w-1/2 md:w-[95%]'>
           <div className='flex justify-start w-full'>
-            <motion.div  onClick={()=>{setSelected(true); setSchool("waterloo")}} whileHover={{scale:1.1, boxShadow: `0 0 50px orange`}} className='flex flex-row items-center justify-center my-3 bg-orange-300 cursor-pointer rounded-3xl bg-opacity-20 backdrop-blur-lg' layoutId={`card-container-waterloo`}
+            <motion.div  onClick={()=>{setSelected(true); setSchool("waterloo")}} whileHover={{scale:1.1, boxShadow: `0 0 50px orange`}} className='flex flex-row items-center justify-center p-2 my-3 bg-orange-300 cursor-pointer rounded-3xl bg-opacity-20 backdrop-blur-lg' layoutId={`card-container-waterloo`}
               initial={{ opacity: 0, x:-200 }} whileInView={{ opacity: 1, x:0, transition: { delay:0,duration:1 } }}
             >
-              <motion.div  className='w-[200px] h-[200px] rounded-full overflow-hidden' layoutId='card-image-container-waterloo'>
-                <img className='object-cover w-[200px] h-[200px] ' src='waterloo.png' alt='waterloo' />
+              <motion.div  className='w-[150px] h-[150px] rounded-full overflow-hidden' layoutId='card-image-container-waterloo'>
+                <img className='object-cover w-[150px] h-[150px] ' src='waterloo.png' alt='waterloo' />
               </motion.div>
               <motion.div className='flex flex-col items-start px-3' layoutId={`title-container-waterloo`}>
-                <h2 className='text-3xl font-bold text-white'>University of Waterloo</h2>
-                <h2 className='text-3xl font-bold text-white'>Bachelor of Computer Science</h2>
-                <h2 className='text-xl font-bold text-gray-500 '>* Click the block to see the course taken</h2>
+                <h2 className='text-2xl font-bold text-white'>University of Waterloo</h2>
+                <h2 className='text-2xl font-bold text-white'>Bachelor of Computer Science</h2>
+                <h2 className='text-lg font-bold text-gray-500 '>* Click the block to see the course taken</h2>
               </motion.div>
             </motion.div>
           </div>
-          <div className='flex justify-end w-full pt-6'>
-            <motion.div onClick={()=>{setSelected(true); setSchool("wilfrid")}} whileHover={{scale:1.1, boxShadow: `0 0 80px purple`}} className='flex flex-row items-center justify-center my-3 bg-purple-500 cursor-pointer rounded-3xl bg-opacity-20 backdrop-blur-lg' layoutId={`card-container-wilfrid`}
+          <div className='flex justify-end w-full pt-6 md:pt-2'>
+            <motion.div onClick={()=>{setSelected(true); setSchool("wilfrid")}} whileHover={{scale:1.1, boxShadow: `0 0 80px purple`}} className='flex flex-row items-center justify-center p-2 my-3 bg-purple-500 cursor-pointer rounded-3xl bg-opacity-20 backdrop-blur-lg' layoutId={`card-container-wilfrid`}
              initial={{ opacity: 0, x:200 }} whileInView={{ opacity: 1, x:0, transition: { delay:0.2,duration:1 } }}>
               <motion.div className='flex flex-col items-end px-3 text-right' layoutId={`title-container-wilfrid`}>
-                <h2 className='text-3xl font-bold text-white '>Wilfrid Laurier University</h2>
-                <h2 className='text-3xl font-bold text-white '>Bachelor of Business Administration</h2>
-                <h2 className='text-xl font-bold text-gray-500 '>* Click the block to see the course taken</h2>
+                <h2 className='text-2xl font-bold text-white '>Wilfrid Laurier University</h2>
+                <h2 className='text-2xl font-bold text-white '>Bachelor of Business Administration</h2>
+                <h2 className='text-lg font-bold text-gray-500 '>* Click the block to see the course taken</h2>
               </motion.div>
-              <motion.div className='w-[200px] h-[200px] rounded-full overflow-hidden' layoutId='card-image-container-wilfrid'>
-                <img className='w-[200px] h-[200px] object-cover scale-[1.11]' src='wilfrid.png' alt='laurier' />
+              <motion.div className='w-[150px] h-[150px] rounded-full overflow-hidden' layoutId='card-image-container-wilfrid'>
+                <img className='w-[150px] h-[150px] object-cover scale-[1.11]' src='wilfrid.png' alt='laurier' />
               </motion.div>
             </motion.div>
           </div>

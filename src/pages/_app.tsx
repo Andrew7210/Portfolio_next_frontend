@@ -16,7 +16,7 @@ const App = ({ Component, pageProps }: AppProps) => (
     <div className={crimsonPro.className}>
       <motion.div>
         <Navbar />
-        <motion.div className="flex w-screen pt-20 overflow-hidden">
+        <motion.div className="flex w-screen pt-12 overflow-hidden">
           <Component {...pageProps} />
           <Analytics />
         </motion.div>

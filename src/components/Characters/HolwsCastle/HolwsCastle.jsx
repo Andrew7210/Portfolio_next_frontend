@@ -2,7 +2,7 @@ import React from 'react'
 import {motion} from 'framer-motion'
 const HolwsCastle = () => {
   return (
-    <div class="castle-container scale-[0.6]" role="img" aria-labelledby="castleDesc">
+    <div class="castle-container scale-[0.4]" role="img" aria-labelledby="castleDesc">
       <div class="castle">
         <div class="top">
           <motion.div class="top-tower" style={{transformOrigin: '50% 100%'}}

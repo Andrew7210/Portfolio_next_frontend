@@ -70,7 +70,7 @@ const WorkExperience = () => {
     }
   }
   return (
-    <div className='relative w-full min-h-screen '>
+    <div className='relative w-full min-h-screen snap-center'>
       <Lottie lottieRef={lottieRef} animationData={background} loop={true} className='absolute w-full h-full opacity-10' />
       <div className='flex flex-row items-center justify-center h-full md:flex-col'>
         {clicked &&
@@ -85,7 +85,7 @@ const WorkExperience = () => {
                 onClick={()=>{setClicked(false); setSelectId(-1);openImage()}}
               >
             </motion.div>
-            <motion.div layoutId={`workbox-${selectId}`}  className='w-[40%] ml-10 workBoxshow z-30 md:fixed md:w-[90%] md:top-[20%] md:ml-0' style={{"--clr":`${works[selectId].color.hex}`}} onClick={()=>{
+            <motion.div layoutId={`workbox-${selectId}`}  className='w-[40%] ml-10 workBoxshow z-30 md:fixed md:w-[80%] md:top-[20%] md:ml-0' style={{"--clr":`${works[selectId].color.hex}`}} onClick={()=>{
               setClicked(false)
               openImage()
               setSelectId(-1)
@@ -95,16 +95,16 @@ const WorkExperience = () => {
                 <div className='flex flex-row items-center'>
                   <motion.div className='icon' layoutId={`iconbox-${selectId}`}><img src={urlFor(works[selectId].image)} /></motion.div>
                   <motion.div className='pl-10 text' layoutId={`boxtext-${selectId}`}>
-                    <motion.h1 className='text-4xl' layoutId={`boxtitle-${selectId}`}>{"name" in works[selectId] ? `${works[selectId].title} (${works[selectId].name})` : `${works[selectId].title}`}</motion.h1>
-                    <motion.p className='text-2xl font-bold' layoutId={`boxjob-${selectId}`}>{works[selectId].job}</motion.p>
-                    <motion.div className='flex flex-row items-center gap-5' layoutId={`boxtime-${selectId}`}>
-                      <h3>{works[selectId].begin}</h3>
-                      <h1 className='text-2xl'>to</h1>
-                      <h3>{works[selectId].end}</h3>
+                    <motion.h1 className='text-2xl' layoutId={`boxtitle-${selectId}`}>{"name" in works[selectId] ? `${works[selectId].title} (${works[selectId].name})` : `${works[selectId].title}`}</motion.h1>
+                    <motion.p className='text-xl font-bold' layoutId={`boxjob-${selectId}`}>{works[selectId].job}</motion.p>
+                    <motion.div className='flex flex-row items-center gap-5 mt-2' layoutId={`boxtime-${selectId}`}>
+                      <h3 className='text-lg'>{works[selectId].begin.substring(0,7)}</h3>
+                      <h1 className='text-lg'>to</h1>
+                      <h3 className='text-lg'>{works[selectId].end.substring(0,7)}</h3>
                     </motion.div>
                   </motion.div>
                 </div>
-                <motion.p className='p-5 text-2xl text-gray-400' layoutId={`boxdetail-${selectId}`}>
+                <motion.p className='p-5 text-lg text-gray-400' layoutId={`boxdetail-${selectId}`}>
                   <PortableText value={works[selectId].description} components={components} />
                 </motion.p>
               </div>
@@ -116,10 +116,10 @@ const WorkExperience = () => {
           <motion.div animate={closeControl} className={`z-10 w-1/2 h-3/4 md:w-full md:h-1/2 ${clicked ? ' absolute': 'relative'}`}><RiveComponent  /></motion.div>
 
         <div className='flex flex-col items-start justify-center w-1/2 h-full md:w-full md:h-3/4'>
-          <motion.h2 initial={{opacity:0, y:-100}} whileInView={{opacity:1, y:0, transition:{duration:1}}} className='w-full pb-10 text-6xl font-bold text-center text-white md:text-4xl'>Work Experience</motion.h2>
+          <motion.h2 initial={{opacity:0}} whileInView={{opacity:1, transition:{duration:1}}} className='w-full pb-10 text-4xl font-bold text-center text-white'>Work Experience</motion.h2>
           <motion.div  className='flex flex-row flex-wrap items-center justify-center w-full grid-cols-2 gap-10 md:gap-6'>
             {works.map((work, index) => 
-              <motion.div layoutId={`workbox-${index}`} className='workBox w-[500px] h-[200px] md:w-[43vw] md:h-[15vh] cursor-pointer' style={{"--clr":`${work.color.hex}`}} onHoverStart={()=>breakInput.value=false} onHoverEnd={()=>breakInput.value=true} onClick={()=>{
+              <motion.div layoutId={`workbox-${index}`} className='cursor-pointer workBox' style={{"--clr":`${work.color.hex}`}} onHoverStart={()=>breakInput.value=false} onHoverEnd={()=>breakInput.value=true} onClick={()=>{
               setClicked(true)
               closeImage()
               setSelectId(index)
@@ -129,14 +129,14 @@ const WorkExperience = () => {
                 <motion.div className='content'>
                   <motion.div className='icon' layoutId={`iconbox-${index}`}><img src={urlFor(work.image)} /></motion.div>
                   <motion.div className='text' layoutId={`boxtext-${index}`}>
-                    <motion.h1 className='text-4xl md:text-2xl' layoutId={`boxtitle-${index}`}>{work.title}</motion.h1>
-                    <motion.p className='text-2xl font-bold md:text-lg' layoutId={`boxjob-${index}`}>{work.job}</motion.p>
-                    <motion.div className='flex flex-row items-center justify-center gap-5 ' layoutId={`boxtime-${index}`}>
-                      <h3 className='text-2xl md:text-lg'>{work.begin.substring(0,7)}</h3>
-                      <h1 className='text-2xl md:text-lg'>to</h1>
-                      <h3 className='text-2xl md:text-lg'>{work.end.substring(0,7)}</h3>
+                    <motion.h1 className='text-2xl md:text-2xl' layoutId={`boxtitle-${index}`}>{work.title}</motion.h1>
+                    <motion.p className='text-lg font-bold' layoutId={`boxjob-${index}`}>{work.job}</motion.p>
+                    <motion.div className='flex flex-row items-center justify-center gap-5 mt-2' layoutId={`boxtime-${index}`}>
+                      <h3 className='text-lg'>{work.begin.substring(0,7)}</h3>
+                      <h1 className='text-lg'>to</h1>
+                      <h3 className='text-lg'>{work.end.substring(0,7)}</h3>
                     </motion.div>
-                    <motion.p className='pt-3 text-xl md:text-lg' layoutId={`boxdetail-${index}`}>*Click to see more details</motion.p>
+                    <motion.p className='pt-3 text-base' layoutId={`boxdetail-${index}`}>*Click to see more details</motion.p>
                   </motion.div>
                 </motion.div>
               </motion.div>
