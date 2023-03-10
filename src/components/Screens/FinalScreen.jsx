@@ -9,16 +9,18 @@ const FinalScreen = () => {
   });
   const input = useStateMachineInput(rive, "controller", "onHover", true);
   return (
-    <div className='relative flex-col w-screen h-screen flex justify-center items-center'>
+    <div className='relative flex flex-col items-center justify-center w-screen h-screen'>
         <div className='w-3/4 h-3/4'>
           <RiveComponent />
         </div>
-        <motion.div className='w-full flex flex-col justify-center items-center' onMouseEnter={()=>input.value=false} onMouseLeave={()=>input.value=true}>
-          <h1 className='p-6 font-extrabold text-white text-center text-7xl '>The End !</h1>
-          <h1 className='p-1 font-bold text-white text-center text-4xl '>Hope you enjoy my portfolio !</h1>
-          <h1 className='p-1 font-bold text-white text-center text-4xl '>Please check other tabs in the navbar.</h1>
-          <h1 className='p-1 font-semibold text-gray-600 text-center text-2xl '>*Hover the text to show the Easter Egg</h1>
-        </motion.div>
+        <div className='flex flex-row justify-center w-full'>
+          <motion.div className='flex flex-col items-center justify-center' onMouseEnter={()=>input.value=false} onMouseLeave={()=>input.value=true}>
+            <h1 className='p-6 text-6xl font-extrabold text-center text-white '>The End !</h1>
+            <h1 className='p-1 text-3xl font-bold text-center text-white '>Hope you enjoy my portfolio !</h1>
+            <h1 className='p-1 text-3xl font-bold text-center text-white '>Please check other tabs in the navbar.</h1>
+            <h1 className='p-1 text-xl font-semibold text-center text-gray-600 '>*Hover the text to show the Easter Egg</h1>
+          </motion.div>
+        </div>
     </div>
   )
 }

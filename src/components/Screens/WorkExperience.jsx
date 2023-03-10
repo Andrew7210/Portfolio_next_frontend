@@ -85,7 +85,7 @@ const WorkExperience = () => {
                 onClick={()=>{setClicked(false); setSelectId(-1);openImage()}}
               >
             </motion.div>
-            <motion.div layoutId={`workbox-${selectId}`}  className='w-[40%] ml-10 workBoxshow z-30 md:fixed md:w-[80%] md:top-[20%] md:ml-0' style={{"--clr":`${works[selectId].color.hex}`}} onClick={()=>{
+            <motion.div layoutId={`workbox-${selectId}`}  className='w-[40%] ml-10 workBoxshow z-30 md:fixed md:w-[80%] md:top-[20%] cursor-pointer md:ml-0' style={{"--clr":`${works[selectId].color.hex}`}} onClick={()=>{
               setClicked(false)
               openImage()
               setSelectId(-1)
@@ -113,9 +113,9 @@ const WorkExperience = () => {
             </motion.div>
           </AnimatePresence>
           }
-          <motion.div animate={closeControl} className={`z-10 w-1/2 h-3/4 md:w-full md:h-1/2 ${clicked ? ' absolute': 'relative'}`}><RiveComponent  /></motion.div>
+          <motion.div animate={closeControl} className={`z-10 w-2/5 h-3/4 md:w-full md:h-1/2 ${clicked ? ' absolute': 'relative'}`}><RiveComponent  /></motion.div>
 
-        <div className='flex flex-col items-start justify-center w-1/2 h-full md:w-full md:h-3/4'>
+        <div className='flex flex-col items-start justify-center w-3/5 h-full md:w-full md:h-3/4'>
           <motion.h2 initial={{opacity:0}} whileInView={{opacity:1, transition:{duration:1}}} className='w-full pb-10 text-4xl font-bold text-center text-white'>Work Experience</motion.h2>
           <motion.div  className='flex flex-row flex-wrap items-center justify-center w-full grid-cols-2 gap-10 md:gap-6'>
             {works.map((work, index) => 

@@ -131,7 +131,7 @@ const Navbar = () => {
       </div>
       {/* right side manu for the mobile device */}
       <div className="items-center hidden h-20 pr-3 ml-3 md:flex">
-        <RiveComponent style={{width: 50, cursor:'pointer'}} onClick={()=>{
+        <RiveComponent style={{width: 50, cursor:'pointer', zIndex:30}} onClick={()=>{
           setIsOpen((preState) => !preState)
           bumpInput.value=!bumpInput.value
           }} />
@@ -141,7 +141,7 @@ const Navbar = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }} 
-            className="fixed inset-0 z-10 flex flex-col justify-between bg-black top-65 nav-h">
+            className="fixed inset-0 z-10 flex flex-col justify-between h-full bg-black">
               <div className={`flex-1 p-4 ${active}`}>
                 {/* isMobile默认为true */}
                 <MenuItems />

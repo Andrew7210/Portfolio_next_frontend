@@ -30,7 +30,7 @@ function Card({ project, id, setselected, setselectid }) {
           </motion.div>
           <motion.div className="absolute w-full h-full left-4 top-4" layoutId={`title-container-${id}`}>
             <span className="text-3xl font-bold text-white">{project.title}</span>
-            <div className='flex flex-row flex-wrap gap-2 max-w-[70%] pt-2'>
+            <div className='flex flex-row flex-wrap gap-1 max-w-[90%] pt-1'>
               {project.technology.map((tech, index) => (
                 <div className='px-2 py-1 text-center text-white rounded-lg bg-slate-500'>
                   <h3 className='text-base font-bold'>{tech}</h3>
@@ -73,7 +73,7 @@ function Item({ id,project, setselected, setselectid }) {
             <motion.div className="flex flex-col flex-1 pl-5" layoutId={`title-container-${id}`}>
               <h3 className="text-5xl font-bold text-white md:text-5xl md:pt-5">{project.title}</h3>
               <h3 className="py-4 text-xl font-medium text-white md:text-3xl">{project.description}</h3>
-              <div className='flex flex-row flex-wrap gap-2 max-w-[70%]'>
+              <div className='flex flex-row flex-wrap gap-2 '>
               {project.technology.map((tech, index) => (
                 <div className='px-2 py-1 text-center text-white rounded-lg bg-slate-500'>
                   <h3 className='text-base font-bold'>{tech}</h3>

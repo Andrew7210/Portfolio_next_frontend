@@ -134,8 +134,8 @@ const Contact = () => {
           <div className='absolute top-0 left-0 w-full adjustheight blur-2xl' >
             <RiveComponent />
           </div>
-            <motion.div variants={move} custom={1} animate="show" className="z-20 littlebox w-28 h-28 opacity-80 right-[3%] md:right-0 top-[15%]"></motion.div>
-            <motion.div variants={move} custom={2} animate="show" className="z-20 w-32 h-32 littlebox left-[0%] bottom-[30%]"></motion.div>
+            <motion.div variants={move} custom={1} animate="show" className="z-0 littlebox w-28 h-28 opacity-80 right-[3%] md:right-0 top-[15%]"></motion.div>
+            <motion.div variants={move} custom={2} animate="show" className="z-0 w-32 h-32 littlebox left-[0%] bottom-[30%]"></motion.div>
             <motion.div variants={move} custom={3} animate="show" className="w-12 h-12 littlebox opacity-60 right-[17%] bottom-[7%] md:bottom-5"></motion.div>
             <motion.div variants={move} custom={4} animate="show" className="z-0 w-28 h-28 littlebox left-[30%] top-[6%] md:top-0"></motion.div>
             <motion.div variants={move} custom={5} animate="show" className="littlebox w-20 h-20 right-[4%] bottom-[40%]"></motion.div>
