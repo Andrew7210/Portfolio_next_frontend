@@ -140,10 +140,10 @@ const Contact = () => {
             <motion.div variants={move} custom={4} animate="show" className="z-0 w-28 h-28 littlebox left-[30%] top-[6%] md:top-0"></motion.div>
             <motion.div variants={move} custom={5} animate="show" className="littlebox w-20 h-20 right-[4%] bottom-[40%]"></motion.div>
             <motion.div variants={move} custom={6} animate="show" className="z-0 littlebox w-20 h-20 left-[35%] bottom-[2%]"></motion.div>
-          <div className='z-10 min-h-[50vh] flex flex-col justify-center items-center backdrop-blur  '>
+          <div className='z-10 min-h-[50vh] flex flex-col justify-center items-center backdrop-blur relative'>
+            <div className={`absolute w-full h-full z-20 ${loading ? "flex" : "hidden"} justify-center items-center`}><Check className='w-[200px] h-[200px]' /></div>
+            <div className={`absolute w-full h-full z-20 ${successful ? "flex" : "hidden"} justify-center items-center`}><Celebrate className='w-[280px] h-[280px] scale-150' /></div>
             <div className='relative z-10 w-full p-5 border-4 rounded-2xl backdrop-blur boxfield'>
-              <div className={`absolute w-full h-full z-10 ${loading ? "flex" : "hidden"} justify-center items-center`}><Check className='w-[200px] h-[200px]' /></div>
-              <div className={`absolute w-full h-full z-10 ${successful ? "flex" : "hidden"} justify-center items-center`}><Celebrate className='w-[280px] h-[280px] scale-150' /></div>
               <h1 className="pt-5 text-3xl font-extrabold text-center text-white ">Take a coffee & chat with me</h1>
               <div className="flex flex-row items-center gap-3 py-5 app__footer-cards">
                 <a href="mailto:tianyi.zhan@outlook.com" className="px-2 border-2 border-gray-400 border-opacity-50 shadow-md app__footer-card backdrop-blur-3xl">
