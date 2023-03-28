@@ -65,10 +65,10 @@ function Item({ id,project, setselected, setselectid }) {
           <div className='absolute top-0 right-0 z-40 flex items-center justify-center w-20 h-20 text-5xl text-white cursor-pointer' onClick={()=>{setselected(false); setselectid(-1)}}><i class="fa-solid fa-xmark"></i></div>
           <div className='flex flex-row md:flex-col'>
             <motion.div
-              className="max-w-[50%] overflow-hidden rounded-2xl md:max-w-[90%]"
+              className="max-w-[50%] overflow-hidden md:max-w-[90%]"
               layoutId={`card-image-container-${id}`}
             >
-              <img className="card-image" src={urlFor(project.image)} alt="" />
+              <img className="card-image rounded-2xl" src={urlFor(project.image)} alt="" />
             </motion.div>
             <motion.div className="flex flex-col flex-1 pl-5" layoutId={`title-container-${id}`}>
               <h3 className="text-5xl font-bold text-white md:text-5xl md:pt-5">{project.title}</h3>
@@ -93,11 +93,12 @@ function Item({ id,project, setselected, setselectid }) {
             </motion.div>
           </div>
           <motion.div className="flex flex-row w-full h-full p-5 content-container md:flex-col" animate>
+          {"youtube" in project &&
             <div className='flex flex-col w-1/2 md:w-full' >
               <h3 className='py-5 text-3xl font-bold text-white md:text-4xl'>Project demonstration (Youtube):</h3>
               <div className='w-full aspect-video'><YouTube videoId={getYouTubeID(project.youtube)} opts={opts} className='w-full h-full' /></div>
               <h3 className='py-3 text-base font-bold text-gray-500 md:text-xl'>*If the video not showing, be patient and check you network</h3>
-            </div>
+            </div>}
             <div className='flex flex-1 pt-10 pl-[5%] flex-col md:pl-0'>
               <h3 className='pb-5 text-3xl font-bold text-white md:text-4xl'>Project details:</h3>
               <div className='text-lg font-medium text-gray-300'><PortableText value={project.details} components={components} /></div>
@@ -115,7 +116,7 @@ const Mywork = () => {
   const projectsref = useRef(null)
   useEffect(() => {
     setheight(projectsref.current.offsetHeight)
-  },[])
+  })
   
   const [projects, setProjects] = useState([])
   useEffect(() => {
@@ -124,9 +125,6 @@ const Mywork = () => {
       setProjects(data);
     });
   }, [])
-  useEffect(() => {
-    console.log(projects);
-  }, [projects])
   
 
 

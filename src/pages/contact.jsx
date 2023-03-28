@@ -146,14 +146,14 @@ const Contact = () => {
               <div className={`absolute w-full h-full z-10 ${successful ? "flex" : "hidden"} justify-center items-center`}><Celebrate className='w-[280px] h-[280px] scale-150' /></div>
               <h1 className="pt-5 text-3xl font-extrabold text-center text-white ">Take a coffee & chat with me</h1>
               <div className="flex flex-row items-center gap-3 py-5 app__footer-cards">
-                <div className="px-2 border-2 border-gray-400 border-opacity-50 shadow-md app__footer-card backdrop-blur-3xl">
+                <a href="mailto:tianyi.zhan@outlook.com" className="px-2 border-2 border-gray-400 border-opacity-50 shadow-md app__footer-card backdrop-blur-3xl">
                   <Lottie animationData={emailIcon} loop={true} className='w-16 h-16'/>
-                  <a href="mailto:tianyi.zhan@outlook.com" className="text-base font-bold text-white">tianyi.zhan@outlook.com</a>
-                </div>
-                <div className="px-2 border-2 border-gray-400 border-opacity-50 shadow-md app__footer-card backdrop-blur">
+                  <div className="text-base font-bold text-white">tianyi.zhan@outlook.com</div>
+                </a>
+                <a href="tel:+1(226)220-0555" className="px-2 border-2 border-gray-400 border-opacity-50 shadow-md app__footer-card backdrop-blur">
                   <Lottie animationData={phoneIcon} loop={true} className='w-16 h-16'/>
-                  <a href="tel:+1(226)220-0555" className="text-base font-bold text-white">+1 (226) 220-0555</a>
-                </div>
+                  <div className="text-base font-bold text-white">+1 (226) 220-0555</div>
+                </a>
               </div>
               
               {!isFormSubmitted ? (

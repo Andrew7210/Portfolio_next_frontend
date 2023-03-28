@@ -60,7 +60,7 @@ const Projects = () => {
               <motion.div whileHover={{scale:1.2}} className='flex items-center justify-center w-16 h-16 m-4 bg-white rounded-lg pointer-events-auto'>
                 <a href={links.length == 1 ? links[0].linkedin : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={linkedin} loop={true} onClick={()=>{}} className='w-12 h-12'/></a>
               </motion.div>
-              <motion.div whileHover={{scale:1.1}} className='m-4 pointer-events-auto '>
+              <motion.div whileHover={{scale:1.1}} className='m-4 pointer-events-auto flex items-center justify-center w-16 h-16'>
                 <a href={links.length == 1 ? links[0].github : ""} target="_blank" rel="noopener noreferrer"><Lottie animationData={github} loop={true} onClick={()=>{}} className='w-16 h-16'/></a>
               </motion.div>
             </div>
