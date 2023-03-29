@@ -71,7 +71,7 @@ function Item({ id,project, setselected, setselectid }) {
               <img className="card-image rounded-2xl" src={urlFor(project.image)} alt="" />
             </motion.div>
             <motion.div className="flex flex-col flex-1 pl-5" layoutId={`title-container-${id}`}>
-              <h3 className="text-5xl font-bold text-white md:text-5xl md:pt-5">{project.title}</h3>
+              <h3 className="text-5xl font-bold text-white md:text-5xl md:pt-5 max-w-[90%]">{project.title}</h3>
               <h3 className="py-4 text-xl font-medium text-white md:text-3xl">{project.description}</h3>
               <div className='flex flex-row flex-wrap gap-2 '>
               {project.technology.map((tech, index) => (
