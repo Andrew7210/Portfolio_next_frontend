@@ -7,6 +7,7 @@ export default function Document() {
       <Head>
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="preload" href={riveWASMResource} as="fetch" crossOrigin="anonymous" />
+        <title>Andrew's Portfolio</title>
       </Head>
       <body>
         <Main />
