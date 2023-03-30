@@ -51,7 +51,7 @@ const Projects = () => {
             setShowScreen(false)
           }, 1000)}/></div>
           <div className='flex flex-col justify-center pl-[5vw] z-10 pointer-events-none md:justify-start'>
-            <h2 className='p-2 text-2xl font-bold text-purple-600 md:py-1'>What was impossible, Technology makes possible</h2>
+            <h2 className='p-2 text-2xl font-bold text-purple-600 md:py-1'>What was impossible, Technology makes it possible</h2>
             <h1 className='max-w-3xl p-3 text-6xl font-extrabold text-white md:text-6xl md:py-2'>Time to check the power of knowledge </h1>
             <h2 className='max-w-xl p-2 text-2xl font-bold text-white md:py-1'>The best way to predict the future is to learn and create it.</h2>
             

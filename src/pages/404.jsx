@@ -3,11 +3,11 @@ import { useRive, useStateMachineInput } from "@rive-app/react-canvas";
 
 const FourOFour = () => {
   const { rive, RiveComponent } = useRive({
-    src: "rive/404.riv",
+    src: "/rive/404.riv",
     autoplay: true,
   });
   const { rive:rive2, RiveComponent:HomeButton } = useRive({
-    src: "rive/home.riv",
+    src: "/rive/home.riv",
     stateMachines: "State Machine 1",
     autoplay: true,
   });

@@ -44,7 +44,7 @@ const Learning = () => {
         <motion.div variants={move2} initial="hidden" whileInView="show" className='flex flex-col items-start pl-[5%] md:w-3/4'>
           <motion.h1 variants={move2} className='pl-3 text-2xl font-bold text-white '>Live and learn</motion.h1>
           <motion.h1 variants={move2} className='max-w-3xl p-3 text-4xl font-bold text-white '>Knowledge and skills from school and work is far from enough for me</motion.h1>
-          <motion.h1 variants={move2} className='max-w-3xl p-3 text-xl font-bold text-gray-300'>Learning is a lifelong process of keeping abreast of change</motion.h1>
+          <motion.h1 variants={move2} className='max-w-3xl p-3 text-xl font-bold text-gray-300'>Learning is a lifelong process of keeping abreast of changes</motion.h1>
           <motion.div variants={move2} className='flex flex-row flex-wrap items-center justify-start'>
             <button className="m-3 skillButton" style={{'--clr': 'rgb(64, 52, 177)'}} onClick={()=>setAge(0)} ><span>Beginner</span><i></i></button>
             <button className="m-3 skillButton" style={{'--clr': 'rgb(102, 13, 204)'}} onClick={()=>setAge(1)} ><span>Junior</span><i></i></button>

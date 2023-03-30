@@ -45,13 +45,13 @@ const HolwsCastleScene = () => {
       <div className='z-50 w-screen h-screen'>
         <div className='flex flex-col justify-center pl-[10%]'>
           <h2 className='text-xl font-semibold text-white'>In addition to web design and programming, I am enthusiastic about</h2>
-          <h2 className='text-5xl max-w-5xl font-extrabold text-[#811fce]'>Creating 3d models, game design, mobile Apps and AI</h2>
-          <h2 className='text-xl font-bold text-white'>I try to utilize those in my career, education and web design</h2>
+          <h2 className='text-5xl max-w-5xl font-extrabold text-[#811fce]'>Creating 3d models, game design, mobile Apps and AI development</h2>
+          <h2 className='text-xl font-bold text-white'>I try to utilize those in my life, career and education</h2>
         </div>
       </div>
       <div className='z-50 w-screen h-screen'>
         <div className='flex flex-col justify-center pl-[10%]'>
-          <h2 className='text-xl font-semibold text-white'>During my rest time, I love</h2>
+          <h2 className='text-xl font-semibold text-white'>During my spare time, I love</h2>
           <h2 className='text-5xl font-extrabold text-[#811fce] '>Watching movies (especially Howl's Moving Castle) </h2>
           <h2 className='text-5xl max-w-5xl font-extrabold text-[#811fce] '>And playing video games</h2>
           <h2 className='text-xl font-bold text-white'>I also enjoy delicacies, travelling and skiing</h2>
