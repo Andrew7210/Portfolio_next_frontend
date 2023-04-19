@@ -31,10 +31,13 @@ const index = () => {
             <motion.div className={`fixed flex flex-col top-0 items-center w-screen h-screen bg-[#140e20] z-30`} exit={{rotateX:90, y:"-50vh", transition:{duration:1}}}>
               <RiveComponent className='relative w-full h-1/2 top-20' />
               { !loaded ?
-                <div className="homeloader top-40">
-                  <span>Loading</span>
-                  <span>Loading</span>
-                </div>
+                <>
+                  <div className="homeloader top-40">
+                    <span>Loading</span>
+                    <span>Loading</span>
+                  </div>
+                  <div className="text-center text-base font-semibold p-5 text-white"> *Please be patient for the loading of 3d assets, button will show right away</div>
+                </>
               :
                 <RiveButton className={`h-40 w-80 relative cursor-pointer top-20 ${loaded ? "flex" : "hidden"}`} 
                   onMouseEnter={()=>robotInput.value=2} 

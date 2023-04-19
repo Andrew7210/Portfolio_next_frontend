@@ -39,7 +39,7 @@ const Introduce = ({setloaded}) => {
       </div>
       <div className='absolute right-0 md:scale-75 md:-right-[20vh] md:-top-[5%]'><Spline onLoad={()=>setTimeout(() => {
         setloaded(true)
-      }, 3000)} scene="https://prod.spline.design/ua1nr3Tk9lk0Yfqh/scene.splinecode" />
+      }, 1000)} scene="https://prod.spline.design/ua1nr3Tk9lk0Yfqh/scene.splinecode" />
       </div>
     </div>
   )
