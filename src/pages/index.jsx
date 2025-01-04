@@ -50,7 +50,6 @@ const index = () => {
         {showScreen && <div className="h-[500vh] w-screen"></div>}
         <Introduce setloaded={setloaded}/>
         <Education />
-        <WorkExperience />
         <Learning />
         <Network /> 
         <IntroToGame />
